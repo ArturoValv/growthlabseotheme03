@@ -1,0 +1,231 @@
+@use "mixins" as m;
+
+form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  padding: 0;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(var(--text));
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  width: 100%;
+  padding: 10px 16px;
+  background: rgb(var(--secondary-light));
+  border: 1px solid rgb(var(--text), 0.5);
+  border-radius: 3px;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  color: rgb(var(--text));
+
+  &::placeholder {
+    color: rgb(var(--text), 0.6);
+  }
+}
+
+textarea {
+  height: 22rem;
+}
+
+input[type="checkbox"] {
+  all: unset;
+  appearance: none;
+  min-width: 1.6rem;
+  width: 2.4rem;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  z-index: 0;
+  display: block;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    background-color: rgb(var(--secondary-light));
+    border: 1px solid rgba(var(--text), 0.5);
+    border-radius: 4px;
+  }
+
+  &:checked::after {
+    background-color: rgb(var(--primary-dark));
+  }
+
+  &:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    z-index: 2;
+    background-color: rgb(var(--secondary-light));
+    -webkit-mask: url("{theme-path}/assets/icons/icon-checkmark.svg") no-repeat
+      center / contain;
+    mask: url("{theme-path}/assets/icons/icon-checkmark.svg") no-repeat center /
+      contain;
+    display: block;
+  }
+}
+
+.hidden_sub_label,
+input[type="hidden"] {
+  display: none;
+}
+
+.gform_button[type="submit"],
+.gform_button[type="submit"] {
+  min-width: fit-content;
+  padding: 1.6rem 2.4rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--tertiary)) 0%,
+    rgb(var(--tertiary-light)) 50%,
+    rgb(var(--tertiary)) 100%
+  );
+  border-radius: 32px;
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  letter-spacing: 0.45px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: rgb(var(--text));
+  transition: 0.3s linear;
+
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      180deg,
+      rgb(var(--primary-dark)) 0%,
+      rgb(var(--primary-light)) 50%,
+      rgb(var(--primary-dark)) 100%
+    );
+    color: rgb(var(--secondary-light));
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    display: block;
+    fill: rgb(var(--secondary-light));
+  }
+}
+
+.gform {
+  &_wrapper {
+    max-width: 100%;
+    display: flex;
+  }
+
+  &_body {
+    max-width: 100%;
+  }
+
+  &_fields {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sp-xsm);
+  }
+
+  &_footer {
+    width: 100%;
+    padding: var(--sp-xsm);
+    @include m.flex-center;
+  }
+}
+
+.gfield {
+  min-width: 280px;
+  flex-grow: 1;
+
+  $ancestor: &;
+
+  &.hidden_label {
+    #{$ancestor}_label {
+      display: none;
+    }
+  }
+
+  &_visibility {
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &--type-name {
+    width: 100%;
+    display: flex;
+  }
+
+  &--width-full {
+    flex: 1 0 100%;
+  }
+
+  &--width-half {
+    flex: 1 0 calc(50% - var(--sp-xsm) / 2);
+  }
+}
+
+.ginput {
+  &_container {
+    max-width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sp-xsm);
+
+    & > * {
+      min-width: 280px;
+      flex: 1 0 calc(50% - var(--sp-xsm) / 2);
+    }
+
+    *:has(input) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_consent {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+
+      label {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  }
+}

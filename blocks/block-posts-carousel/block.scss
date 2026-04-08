@@ -1,0 +1,126 @@
+@use "../../styles/template-parts/team-card";
+@use "../../styles/template-parts/post-card";
+@use "../../styles/template-parts/default-card";
+@use "../../styles/template-parts/testimonial-card";
+@use "../../styles/template-parts/result-card";
+@use "../../styles/globals/variables" as v;
+@use "../../styles/globals/mixins" as m;
+
+.posts-carousel {
+  padding: var(--sp-xsm) 0;
+
+  @media (min-width: v.$ldpi) {
+    padding: var(--sp-lg) 0;
+  }
+
+  $parent: &;
+
+  &:has(.bg-image) {
+    #{$parent}__title,
+    #{$parent}__content > * {
+      color: rgb(var(--secondary));
+    }
+  }
+
+  &.team {
+    #{$parent}__carousel {
+      border-top: none;
+    }
+
+    #{$parent}__arrows {
+      width: 100%;
+      position: absolute;
+      top: var(--sp-md);
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      @media (min-width: v.$ldpi) {
+        width: fit-content;
+        top: 75%;
+        left: 40%;
+        justify-content: center;
+        gap: var(--sp-xsm);
+
+        button {
+          &:first-of-type {
+            order: 0;
+          }
+
+          &:last-of-type {
+            order: 2;
+          }
+        }
+
+        &::after {
+          content: "";
+          width: 3px;
+          height: auto;
+          background-color: rgb(var(--secondary));
+          display: block;
+          order: 1;
+        }
+      }
+    }
+  }
+
+  &.testimonial {
+    padding-bottom: var(--sp-lg);
+
+    #{$parent}__carousel {
+      border-top: none;
+    }
+
+    #{$parent}__arrows {
+      width: fit-content;
+      margin-inline: auto;
+      margin-top: var(--sp-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      @media (min-width: v.$ldpi) {
+        justify-content: center;
+        gap: var(--sp-xsm);
+      }
+    }
+  }
+
+  &__wrapper {
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-xsm);
+  }
+
+  &__pretitle {
+    letter-spacing: 3.7px;
+  }
+
+  &__title {
+    @include m.title(null, 2.6rem, 4.5vw, 8rem, 500, 1, false);
+  }
+
+  &__separator {
+    max-width: 70%;
+    margin-bottom: var(--sp-xsm);
+  }
+
+  &__content {
+    max-width: 96rem;
+  }
+
+  &__carousel {
+    width: 100%;
+    padding-top: var(--sp-xsm);
+    border-top: 2px solid rgba(var(--tertiary));
+  }
+
+  &__card {
+    padding-inline: calc(var(--sp-xsm) / 2);
+  }
+
+  &__arrows {
+    margin-top: var(--sp-xsm);
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "acf/two-columns",
+  "title": "Two Columns",
+  "style": ["file:./block-min.css"],
+  "script": ["file:./block-min.js"],
+  "category": "growthlabseotheme02-blocks",
+  "icon": "block-default",
+  "keywords": [
+    "growthlabseo",
+    "two-columns",
+    "columns",
+    "content",
+    "text",
+    "image"
+  ],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "block.php"
+  },
+  "supports": {
+    "mode": false
+  },
+  "align": "full"
+}

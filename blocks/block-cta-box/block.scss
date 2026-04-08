@@ -1,0 +1,156 @@
+@use "../../styles/globals/variables" as v;
+@use "../../styles/globals/mixins" as m;
+
+.cta-box {
+  padding: var(--sp-md) 0;
+  position: relative;
+  overflow-y: visible;
+  @include m.flex-center;
+
+  $parent: &;
+
+  &.full {
+    padding-top: calc(35rem + var(--sp-sm));
+    position: relative;
+    background-color: rgba(var(--primary-dark));
+
+    @media (min-width: v.$ldpi) {
+      padding-top: var(--sp-md);
+    }
+
+    #{$parent}__wrapper {
+      max-width: 1400px;
+      position: static;
+      background-color: transparent;
+      border-image: none;
+      border-style: none;
+      @include m.flex-center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+
+      &::after,
+      &::before {
+        content: none;
+      }
+    }
+
+    #{$parent}__side-img {
+      width: 100%;
+      min-width: 28rem;
+      height: 35rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      flex: 1 0 calc(35% - var(--sp-sm));
+
+      @media (min-width: v.$ldpi) {
+        height: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 90%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          box-shadow: inset 0 0 15px 10px rgba(var(--primary-light), 0.6);
+          border-radius: 55%;
+          border: 1px solid rgba(var(--primary-dark), 0.6);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        object-fit: cover;
+        object-position: top center;
+
+        @media (min-width: v.$ldpi) {
+          height: 90%;
+          border-radius: 55%;
+          object-position: center center;
+        }
+      }
+    }
+
+    #{$parent}__inner {
+      min-width: 28rem;
+      flex: 1 0 calc(65% - var(--sp-sm));
+    }
+
+    #{$parent}__pretitle {
+      margin-bottom: 4.5rem;
+      color: rgb(var(--secondary-light));
+    }
+
+    #{$parent}__title {
+      width: 80%;
+      font-size: clamp(3rem, 4vw, 8rem);
+      line-height: 1;
+      @include m.nice-corner("top-left", "top-right", -3rem, 8%);
+      &::after,
+      &::before {
+        width: calc(50% + 3rem);
+        height: 50px;
+        aspect-ratio: unset;
+      }
+    }
+
+    #{$parent}__content {
+      color: rgb(var(--secondary-light));
+
+      & > *:not(a) {
+        color: inherit;
+      }
+    }
+
+    #{$parent}__buttons {
+      margin-top: var(--sp-xsm);
+    }
+  }
+
+  &__wrapper {
+    padding: var(--sp-sm);
+    background-color: rgba(var(--primary-dark));
+    border-image: linear-gradient(
+        152deg,
+        rgb(var(--tertiary-light)) 0%,
+        rgb(var(--tertiary)) 50%,
+        rgb(var(--tertiary-light)) 100%
+      )
+      1;
+    border-width: 4px;
+    border-style: solid;
+    @include m.nice-corner("bottom-left", "bottom-right", -1.5rem, 8%);
+
+    @media (min-width: v.$mdpi) {
+      @include m.nice-corner("bottom-left", "bottom-right", -2.2rem, 8%);
+    }
+  }
+
+  &__heading,
+  &__inner,
+  &__main {
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-xsm);
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 2vw, 5.5rem);
+    color: rgb(var(--secondary-light));
+  }
+
+  &__buttons {
+    @include m.flex-center;
+    flex-wrap: wrap;
+    gap: var(--sp-xsm);
+  }
+}

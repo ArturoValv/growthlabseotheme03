@@ -1,0 +1,103 @@
+@use "../../styles/globals/variables" as v;
+@use "../../styles/globals/mixins" as m;
+@use "../../styles/template-parts/result-card";
+@use "../../styles/template-parts/post-card";
+@use "../../styles/template-parts/default-card";
+@use "../../styles/template-parts/testimonial-card";
+@use "../../styles/template-parts/team-card-grid";
+
+.posts-grid {
+  padding: var(--sp-xsm) 0;
+
+  @media (min-width: v.$ldpi) {
+    padding: var(--sp-lg) 0;
+  }
+
+  $parent: &;
+
+  &:has(.bg-image) {
+    #{$parent}__title,
+    #{$parent}__content > * {
+      color: rgb(var(--secondary));
+    }
+  }
+
+  &__wrapper {
+    padding: var(--sp-xsm);
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-xsm);
+
+    /*  @media (min-width: v.$ldpi) {
+      padding: var(--sp-sm);
+    } */
+  }
+
+  &__title {
+    margin-bottom: var(--sp-xsm);
+    @include m.title(null, 4rem, 4.2vw, 5.2rem);
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__content {
+    max-width: 96rem;
+    margin-bottom: var(--sp-md);
+  }
+
+  &__feed {
+    width: 100%;
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  &__grid {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: var(--sp-sm);
+
+    &.testimonial,
+    &.case-result {
+      flex-direction: column;
+      column-gap: var(--sp-sm);
+
+      @media (min-width: v.$tablet) {
+        display: inline-block;
+        column-count: 2;
+        column-fill: balance;
+      }
+    }
+  }
+
+  &__card {
+    &.case-result {
+      min-width: 28rem;
+      max-width: 58rem;
+      height: fit-content;
+    }
+
+    &.post,
+    &.testimonial {
+      min-width: 28rem;
+      max-width: 62rem;
+      flex: 1 0 calc(50% - (var(--sp-sm) / 2));
+    }
+
+    &.team,
+    &.custom {
+      min-width: 28rem;
+      max-width: 39.2rem;
+      flex: 1 0 calc((100% / 3) - (var(--sp-sm) * 2 / 3));
+    }
+  }
+
+  &__arrows {
+    margin-top: var(--sp-xsm);
+  }
+}

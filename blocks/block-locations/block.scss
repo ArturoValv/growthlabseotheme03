@@ -1,0 +1,70 @@
+@use "../../styles/globals/variables" as v;
+@use "../../styles/globals/mixins" as m;
+
+.locations {
+  padding: var(--sp-sm) 0;
+
+  @media (min-width: v.$ldpi) {
+    padding: var(--sp-lg) 0 var(--sp-md);
+  }
+
+  $parent: &;
+
+  &__wrapper {
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  &__content {
+    max-width: 96rem;
+    @include m.flex-center;
+    flex-direction: column;
+    gap: var(--sp-xsm);
+  }
+
+  &__pretitle {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    margin-bottom: var(--sp-xsm);
+    @include m.title(null, 4rem, 4.2vw, 4.8rem);
+
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.locations-cards {
+  max-width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: calc(var(--sp-xsm) / 2);
+
+  &__grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--sp-xsm);
+  }
+
+  &__card {
+    width: auto;
+    min-width: 235px;
+    margin-bottom: 0;
+    flex: 1 0 calc(50% - var(--sp-xsm) / 2);
+  }
+}
+
+.sidebar {
+  .location-card {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}

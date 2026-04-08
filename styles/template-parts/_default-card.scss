@@ -1,0 +1,109 @@
+@use "../globals/variables" as v;
+@use "../globals/mixins" as m;
+
+.default-card {
+  height: auto;
+  padding-bottom: var(--sp-md);
+
+  $card: &;
+
+  &.grid {
+    #{$card}__title {
+      transform: translateY(50%);
+    }
+
+    &:hover {
+      #{$card}__title {
+        transform: translateY(120%);
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: visible;
+    position: relative;
+    @include m.flex-center;
+    flex-direction: column;
+    background-color: rgb(var(--secondary-light));
+    transition: 0.4s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      path {
+        fill: rgb(var(--primary-light), 0.8);
+      }
+    }
+  }
+
+  &__pic {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    display: flex;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    padding: var(--sp-xsm);
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    @include m.flex-center;
+    gap: var(--sp-xsm);
+    background-color: rgba(var(--text), 0.2);
+    transition: 0.4s ease;
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: var(--sp-xsm);
+    padding: 1.5rem 1rem;
+    position: relative;
+    z-index: 5;
+    display: block;
+    transform: translateY(80%);
+    text-align: center;
+    color: rgb(var(--secondary-light));
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2vw, 3.5rem);
+    transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &__content {
+    flex: 0 0 100%;
+    color: rgb(var(--text));
+    font-weight: 400;
+  }
+
+  &.is-active,
+  &:hover {
+    #{$card}__title {
+      background-color: rgb(var(--primary));
+      @include m.nice-corner(
+        $corner_position_1: "bottom-left",
+        $corner_position_2: "bottom-right",
+        $offset: -1rem,
+        $size: 10%,
+        $bw-lg: 3px
+      );
+      transform: translateY(130%);
+    }
+  }
+}
