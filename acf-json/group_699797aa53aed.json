@@ -973,10 +973,10 @@
                         },
                         {
                             "key": "field_6960a06686c9f",
-                            "label": "Contact Form Description",
-                            "name": "contact_form_description",
+                            "label": "Contact Form Link",
+                            "name": "contact_form_link",
                             "aria-label": "",
-                            "type": "wysiwyg",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": [
@@ -993,12 +993,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "allow_in_bindings": 0,
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
+                            "return_format": "array",
+                            "allow_in_bindings": 0
                         },
                         {
                             "key": "field_6960a0668a5dc",
@@ -1308,5 +1304,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775979982
+    "modified": 1775989799
 }

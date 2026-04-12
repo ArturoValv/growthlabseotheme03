@@ -2,49 +2,52 @@
 @use "globals/mixins" as m;
 @use "./location-card";
 
+section:has(+ .site-footer .contact-form-footer),
+main:has(+ .site-footer .contact-form-footer) {
+  padding-bottom: var(--sp-lg);
+}
+
 .site-footer {
   position: relative;
   z-index: 5;
   overflow: visible;
   background-color: transparent;
 
-  &__bg {
-    img {
-      mask-image: linear-gradient(
-        transparent 5%,
-        rgba(var(--primary-dark)) 100%
-      );
-    }
-  }
-
   //Footer Form Section
   .contact-form-footer {
+    margin-top: calc(-1 * var(--sp-lg));
+    content-visibility: visible;
+    overflow: visible;
     position: relative;
 
     &__wrapper {
-      padding: 3rem;
-      background-color: rgb(var(--primary));
-
-      @media (min-width: v.$ldpi) {
-        padding: 4rem;
-      }
+      margin-top: var(--sp-lg);
     }
 
     &__inner {
       margin: 0 auto;
+      padding: var(--sp-sm);
+      transform: translateY(calc(-1 * var(--sp-lg)));
+      background-color: rgb(var(--primary));
       @include m.flex-center;
       flex-wrap: wrap;
+      row-gap: 1.5rem;
+
+      @media (min-width: v.$ldpi) {
+        padding: var(--sp-md) var(--sp-sm);
+      }
     }
 
     &__col {
       min-width: 280px;
       flex: 1 0 50%;
       display: flex;
+      justify-content: center;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1.5rem;
 
       &:first-child {
-        padding-inline: 1rem;
+        padding-inline: 1.2rem;
       }
     }
 
@@ -61,8 +64,19 @@
       text-transform: uppercase;
     }
 
-    &__description {
+    &__link {
+      width: fit-content;
+      text-decoration: underline;
+      font-family: var(--font-titles);
+      font-size: clamp(4rem, 2.5vw, 6rem);
+      font-weight: 600;
+      line-height: 1;
       color: rgb(var(--secondary-light));
+
+      &:hover {
+        cursor: pointer;
+        color: rgb(var(--primary-dark));
+      }
     }
 
     &__form {
@@ -78,20 +92,22 @@
   }
 
   .footer-menu {
-    padding-block: 5rem;
+    padding-block: var(--sp-xsm);
 
     &__wrapper {
       @include m.flex-center;
-      gap: 5rem;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
     }
 
     .menu-item {
+      text-align: center;
       span {
         text-transform: uppercase;
-        text-align: center;
         font-family: var(--font-content);
+        line-height: 1;
         color: rgb(var(--secondary-light));
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
 
         &:hover {
           cursor: pointer;
@@ -101,14 +117,136 @@
     }
   }
 
-  .copyright-footer {
+  .footer-locations {
+    &__wrapper {
+      padding-block: var(--sp-sm);
+      @include m.flex-center;
+      flex-wrap: wrap;
+    }
+
+    &__location {
+      min-width: 280px;
+      flex: 0 0 38rem;
+      @include m.flex-center;
+    }
+
+    .office {
+      padding: var(--sp-xsm);
+      @include m.flex-center;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+
+      svg {
+        width: 40px;
+        height: 50px;
+        display: block;
+        path {
+          fill: rgb(var(--primary));
+        }
+      }
+
+      &__city {
+        font-family: var(--font-titles);
+        font-size: 3.6rem;
+        font-weight: 600;
+        line-height: 1.25;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgb(var(--secondary-light));
+
+        a {
+          all: inherit;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            cursor: pointer;
+            color: rgb(var(--secondary));
+          }
+        }
+      }
+
+      &__address {
+        max-width: 21.5rem;
+        font-size: 2.2rem;
+        color: rgb(var(--secondary-light));
+      }
+
+      &__link {
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        text-align: center;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: rgb(var(--primary-light));
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          cursor: pointer;
+          color: rgb(var(--secondary-light));
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    &__wrapper {
+      padding: var(--sp-md) 0;
+      @include m.flex-center;
+      gap: var(--sp-xsm);
+
+      &::before,
+      &::after {
+        max-width: 26%;
+        content: "";
+        height: 1px;
+        background-color: rgba(var(--secondary-light), 0.2);
+        flex: 1;
+        display: block;
+      }
+    }
+
+    .social-networks {
+      flex: 1;
+      @include m.flex-center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    li {
+      width: fit-content;
+      display: flex;
+
+      a {
+        width: fit-content;
+        padding: 1.4rem;
+        @include m.flex-center;
+        gap: 0.5rem;
+        border: 1px solid rgb(var(--secondary-light));
+      }
+
+      span {
+        font-family: var(--font-content);
+        font-size: 1.4rem;
+        color: rgb(var(--secondary-light));
+      }
+
+      svg {
+        width: 2.2rem;
+        height: 2.2rem;
+
+        path {
+          stroke: rgb(var(--secondary-light));
+          fill: rgb(var(--secondary-light));
+        }
+      }
+    }
+  }
+
+  .footer-copyright {
     width: 100%;
     padding: var(--sp-xsm) 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--primary-light), 1) 0%,
-      rgba(var(--primary), 1) 100%
-    );
 
     @media (min-width: v.$mdpi) {
       padding: var(--sp-sm) 0;
@@ -125,46 +263,25 @@
       text-align: center;
       font-size: clamp(1.6rem, 1.6rem + 0.5vw, 2rem);
       line-height: 1.5;
+
+      * {
+        color: inherit;
+      }
+
+      a {
+        &:hover {
+          cursor: pointer;
+          color: rgb(var(--secondary-dark)) x;
+        }
+      }
     }
 
     &__logo {
-      flex: 0 0 100%;
       @include m.flex-center;
-    }
-  }
 
-  .footer-nav {
-    &__menu {
-      @include m.flex-center;
-      gap: var(--sp-xsm);
-
-      @media (min-width: v.$tablet) {
-        flex-direction: row;
-      }
-    }
-
-    .menu-item {
-      padding-right: var(--sp-xsm);
-
-      &:first-of-type {
-        padding-left: var(--sp-xsm);
-        border-left: 2px solid rgba(var(--secondary-light), 0.5);
-      }
-
-      &:not(:last-of-type) {
-        border-right: 2px solid rgba(var(--secondary-light), 0.5);
-      }
-
-      span {
-        font-size: clamp(1.6rem, 1.6rem + 0.5vw, 2rem);
-        line-height: 1.5;
-        color: rgb(var(--secondary-light));
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-          cursor: pointer;
-          color: rgb(var(--tertiary));
-        }
+      img {
+        width: auto;
+        max-height: 3rem;
       }
     }
   }

@@ -8,9 +8,11 @@
                 print_title($args['title'], $args['tag'], "contact-form-footer__title");
                 ?>
 
-                <div class="contact-form-footer__description formatted-text">
-                    <?php echo wp_kses_post(wpautop($args['description'])); ?>
-                </div>
+                <?php if ($args['link'] !== ""): ?>
+                    <a href="<?= $args['link']['url']; ?>" target="<?= $args['link']['target']; ?>" class="contact-form-footer__link formatted-text">
+                        <?= $args['link']['title']; ?>
+                    </a>
+                <?php endif ?>
             </div>
 
             <div class="contact-form-footer__col">

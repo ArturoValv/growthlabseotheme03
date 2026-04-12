@@ -26,7 +26,7 @@
         'logo' => $logo ?? null,
         'title' => isset($contact_form_title) && $contact_form_title ? $contact_form_title : "",
         'tag' => isset($contact_form_title_tag) && $contact_form_title_tag ? $contact_form_title_tag : "p",
-        'description' => isset($contact_form_description) && $contact_form_description ? $contact_form_description : "",
+        'link' => isset($contact_form_link) && $contact_form_link ? $contact_form_link : "",
         'form' => isset($contact_form) && $contact_form ? $contact_form : null,
       ];
       get_template_part('template-parts/footer', 'form', $args);
@@ -53,16 +53,39 @@
     ?>
 
     <?php
+    // Locations
+    if (!$locations_section['hide_section'] && !get_field('hide_locations_section')) {
+      $args = [
+        'offices' => $offices
+      ];
+      get_template_part('template-parts/footer', 'locations', $args);
+    }
+    ?>
+
+    <?php
+    // Social
+    if (!$social_networks_section['hide_section'] && !get_field('hide_social_networks_section')) : ?>
+
+      <section class="footer-social">
+        <div class="footer-social__wrapper">
+          <?php get_template_part('template-parts/social', 'networks'); ?>
+        </div>
+      </section>
+
+    <?php endif ?>
+
+    <?php
+    //Copy
     if (!$copyright_section['hide_section'] && !get_field("hide_copyright_section")):
       foreach ($copyright_section as $copy_field => $copy_content) $$copy_field = $copy_content;
     ?>
-      <section class="copyright-footer">
-        <div class="copyright-footer__wrapper container">
-          <p class="copyright-footer__advertisement">
+      <section class="footer-copyright">
+        <div class="footer-copyright__wrapper container">
+          <div class="footer-copyright__advertisement">
             <?= $copyright ?>
-          </p>
+          </div>
 
-          <a href="https://growthlabseo.com/" target="_blank" class="copyright-footer__logo" aria-label="Growth Lab SEO">
+          <a href="https://growthlabseo.com/" target="_blank" class="footer-copyright__logo" aria-label="Growth Lab SEO">
             <img src="<?= get_stylesheet_directory_uri() . "/assets/img/Growth-Lab-Logo.png" ?>" alt="Growth Lab SEO Logo" width="270" height="50">
           </a>
 
