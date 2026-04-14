@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 foreach ($args as $key => $value) $$key = $value;
 ?>
 
-<div class="ampersand-separator <?= esc_attr($classes); ?>">
+<div class="logo-separator <?= esc_attr($classes); ?>">
     <hr>
     <?php
     $options = get_field_options("options");

@@ -446,6 +446,7 @@ img.bg-image {
 
   &:hover {
     cursor: pointer;
+    color: rgb(var(--primary-dark));
   }
 
   &::before {
