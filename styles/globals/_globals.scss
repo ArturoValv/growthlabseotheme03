@@ -288,7 +288,7 @@ img.bg-image {
     background: linear-gradient(
       0deg,
       rgb(var(--primary-dark)) 0%,
-      rgb(var(--primary)) 100%
+      rgb(var(--tertiary)) 100%
     );
     opacity: 0.8;
 
@@ -297,16 +297,16 @@ img.bg-image {
         radial-gradient(
           ellipse at bottom left,
           rgba(var(--primary-dark), 0.9) 0%,
-          rgba(var(--primary), 0.9) 70%
+          rgba(var(--tertiary), 0.9) 70%
         ),
         radial-gradient(
           ellipse at top right,
-          rgba(var(--primary), 0.8) 0%,
-          rgba(var(--primary), 0.8) 70%
+          rgba(var(--tertiary), 0.8) 0%,
+          rgba(var(--tertiary), 0.8) 70%
         ),
         linear-gradient(
           0deg,
-          rgba(var(--primary), 1) 0%,
+          rgba(var(--tertiary), 1) 0%,
           rgba(var(--primary-dark), 1) 100%
         );
       opacity: 0.8;
