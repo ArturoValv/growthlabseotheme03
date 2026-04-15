@@ -10,12 +10,14 @@
   padding: var(--sp-xsm) 0;
 
   @media (min-width: v.$ldpi) {
-    padding: var(--sp-lg) 0;
+    padding: var(--sp-md) 0;
   }
 
   $parent: &;
 
-  &:has(.bg-image) {
+  &.dark {
+    background-color: rgba(var(--tertiary));
+
     #{$parent}__title,
     #{$parent}__content > * {
       color: rgb(var(--secondary));
@@ -98,7 +100,7 @@
   }
 
   &__title {
-    @include m.title(null, 2.6rem, 4.5vw, 8rem, 500, 1, false);
+    @include m.title(rgba(var(--tertiary)), 3rem, 4.5vw, 10rem, 500, 1);
   }
 
   &__separator {
@@ -113,7 +115,6 @@
   &__carousel {
     width: 100%;
     padding-top: var(--sp-xsm);
-    border-top: 2px solid rgba(var(--tertiary));
   }
 
   &__card {
@@ -121,6 +122,6 @@
   }
 
   &__arrows {
-    margin-top: var(--sp-xsm);
+    margin-top: var(--sp-sm);
   }
 }

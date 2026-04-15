@@ -1,0 +1,16 @@
+{
+  "name": "acf/selling-points",
+  "title": "Selling Points",
+  "style": ["file:./block-min.css"],
+  "category": "growthlabseotheme03-blocks",
+  "icon": "block-default",
+  "keywords": ["growthlabseo", "selling points", "items"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "block.php"
+  },
+  "supports": {
+    "mode": false
+  },
+  "align": "full"
+}

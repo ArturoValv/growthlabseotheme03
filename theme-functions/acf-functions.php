@@ -27,13 +27,28 @@ add_filter('block_categories_all', 'theme_blocks_category', 10, 2);
 if (!function_exists('register_acf_blocks')) {
     function register_acf_blocks()
     {
-        $cache_key   = 'theme_block_files_cache_' . get_stylesheet();
+        $cache_key    = 'theme_block_files_cache_' . get_stylesheet();
+        $hash_key     = 'theme_block_files_hash_'  . get_stylesheet();
+
+        $block_json_files = array_merge(
+            glob(get_template_directory()   . '/blocks/*/block.json') ?: [],
+            glob(get_stylesheet_directory() . '/blocks/*/block.json') ?: []
+        );
+
+        $current_hash = md5(implode('|', array_map(
+            fn($f) => $f . ':' . filemtime($f),
+            $block_json_files
+        )));
+
+        if (get_transient($hash_key) !== $current_hash) {
+            delete_transient($cache_key);
+        }
+
         $block_files = get_transient($cache_key);
 
         if ($block_files === false) {
             $block_files = [];
 
-            // 1. Parent blocks
             foreach (glob(get_template_directory() . '/blocks/*/block.json') ?: [] as $block) {
                 $data = json_decode(file_get_contents($block), true);
                 if (!empty($data['name'])) {
@@ -41,7 +56,6 @@ if (!function_exists('register_acf_blocks')) {
                 }
             }
 
-            // 2. Child blocks (override)
             foreach (glob(get_stylesheet_directory() . '/blocks/*/block.json') ?: [] as $block) {
                 $data = json_decode(file_get_contents($block), true);
                 if (!empty($data['name'])) {
@@ -49,15 +63,13 @@ if (!function_exists('register_acf_blocks')) {
                 }
             }
 
-            // Cache for 24 hours, purged on theme update
-            set_transient($cache_key, $block_files, 24 * HOUR_IN_SECONDS);
+            set_transient($cache_key,  $block_files,   24 * HOUR_IN_SECONDS);
+            set_transient($hash_key,   $current_hash,  24 * HOUR_IN_SECONDS);
         }
 
-        // Store block folder map globally for later critical CSS extraction.
         global $acf_block_dirs;
         $acf_block_dirs = $block_files;
 
-        // 3. Register all found blocks
         foreach ($block_files as $block_dir) {
             register_block_type($block_dir);
         }

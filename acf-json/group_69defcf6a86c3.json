@@ -1,9 +1,9 @@
 {
-    "key": "group_691a42ddd58d6",
+    "key": "group_69defcf6a86c3",
     "title": "Block - Posts Carousel",
     "fields": [
         {
-            "key": "field_691a42dddb328",
+            "key": "field_69defcf6acec7",
             "label": "POSTS CAROUSEL",
             "name": "",
             "aria-label": "",
@@ -21,7 +21,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_691a42dddeeee",
+            "key": "field_69defcf6b09f5",
             "label": "Toggle Block",
             "name": "toggle_block",
             "aria-label": "",
@@ -42,7 +42,7 @@
             "ui": 1
         },
         {
-            "key": "field_691a42dde2b2d",
+            "key": "field_69defcf6b4461",
             "label": "Block Properties",
             "name": "",
             "aria-label": "",
@@ -52,7 +52,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     }
@@ -68,7 +68,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_691a42dde666e",
+            "key": "field_69defcf6b8079",
             "label": "Block ID",
             "name": "block_id",
             "aria-label": "",
@@ -89,7 +89,7 @@
             "append": ""
         },
         {
-            "key": "field_691a42ddea31d",
+            "key": "field_69defcf6bbc9a",
             "label": "Extract Block From Content",
             "name": "extract_block_from_content",
             "aria-label": "",
@@ -99,7 +99,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     }
@@ -118,7 +118,7 @@
             "ui": 1
         },
         {
-            "key": "field_691a42ddedcc5",
+            "key": "field_69defcf6bf6df",
             "label": "Place",
             "name": "place",
             "aria-label": "",
@@ -128,12 +128,12 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42ddea31d",
+                        "field": "field_69defcf6bbc9a",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     }
@@ -157,7 +157,37 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_691a42de04ff5",
+            "key": "field_69defcf6c31cb",
+            "label": "Background Type",
+            "name": "background_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Light",
+                "dark": "Dark",
+                "image": "Image"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69defcf6c6f12",
             "label": "Background Image",
             "name": "background_image",
             "aria-label": "",
@@ -167,9 +197,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6c31cb",
                         "operator": "==",
-                        "value": "1"
+                        "value": "image"
                     }
                 ]
             ],
@@ -191,7 +221,7 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_691a9412fc8c7",
+            "key": "field_69defcf6ca8b7",
             "label": "Carousel Type",
             "name": "carousel_type",
             "aria-label": "",
@@ -223,78 +253,7 @@
             "save_options": 0
         },
         {
-            "key": "field_69897062083f0",
-            "label": "Pretitle",
-            "name": "pretitle",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_691a9412fc8c7",
-                        "operator": "!=",
-                        "value": "team"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_69897077083f2",
-            "label": "Pretitle Tag",
-            "name": "pretitle_tag",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_691a9412fc8c7",
-                        "operator": "!=",
-                        "value": "team"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h1": "h1",
-                "h2": "h2",
-                "h3": "h3",
-                "h4": "h4",
-                "h5": "h5",
-                "h6": "h6",
-                "p": "p"
-            },
-            "default_value": "p",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
-        },
-        {
-            "key": "field_691a42de08b69",
+            "key": "field_69defcf6ce277",
             "label": "Title",
             "name": "title",
             "aria-label": "",
@@ -304,7 +263,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "!=",
                         "value": "team"
                     }
@@ -323,7 +282,7 @@
             "append": ""
         },
         {
-            "key": "field_691a42de0c58c",
+            "key": "field_69defcf6d1ecd",
             "label": "Title Tag",
             "name": "title_tag",
             "aria-label": "",
@@ -333,7 +292,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "!=",
                         "value": "team"
                     }
@@ -365,7 +324,7 @@
             "save_options": 0
         },
         {
-            "key": "field_691a42de10031",
+            "key": "field_69defcf6d58d5",
             "label": "Text Content",
             "name": "text_content",
             "aria-label": "",
@@ -375,7 +334,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "!=",
                         "value": "team"
                     }
@@ -394,7 +353,36 @@
             "delay": 0
         },
         {
-            "key": "field_690cca4f14dc1",
+            "key": "field_69defcf6d92ae",
+            "label": "Posts Links Target",
+            "name": "posts_links_target",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "_blank": "Blank",
+                "_self": "Self"
+            },
+            "default_value": "_self",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_69defcf6dcd57",
             "label": "Select Results Posts",
             "name": "select_results_posts",
             "aria-label": "",
@@ -404,12 +392,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
-                        "operator": "==",
-                        "value": "1"
-                    },
-                    {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "case-result"
                     }
@@ -436,7 +419,7 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_691a94b5fc8c9",
+            "key": "field_69defcf6e0777",
             "label": "Select Blog Posts",
             "name": "select_blog_posts",
             "aria-label": "",
@@ -446,12 +429,12 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "post"
                     }
@@ -478,7 +461,7 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_691ab810dcafd",
+            "key": "field_69defcf6e428a",
             "label": "Select Team Members Posts",
             "name": "select_team_members_posts",
             "aria-label": "",
@@ -488,12 +471,12 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "team"
                     }
@@ -520,7 +503,7 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_691b8371c7120",
+            "key": "field_69defcf6e7d75",
             "label": "Select Testimonials Posts",
             "name": "select_testimonials_posts",
             "aria-label": "",
@@ -530,12 +513,12 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "testimonial"
                     }
@@ -562,7 +545,7 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_691b479167826",
+            "key": "field_69defcf6eb909",
             "label": "Select or Create Items",
             "name": "select_or_create_items",
             "aria-label": "",
@@ -572,12 +555,12 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "custom"
                     }
@@ -596,7 +579,7 @@
             "ui": 1
         },
         {
-            "key": "field_691b492d67829",
+            "key": "field_69defcf6ef3e7",
             "label": "Select Posts",
             "name": "select_posts",
             "aria-label": "",
@@ -606,17 +589,17 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "custom"
                     },
                     {
-                        "field": "field_691b479167826",
+                        "field": "field_69defcf6eb909",
                         "operator": "==",
                         "value": "1"
                     }
@@ -644,7 +627,7 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_691a8a3595dd0",
+            "key": "field_69defcf6f3138",
             "label": "Custom Carousel",
             "name": "custom_carousel",
             "aria-label": "",
@@ -654,17 +637,17 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     },
                     {
-                        "field": "field_691a9412fc8c7",
+                        "field": "field_69defcf6ca8b7",
                         "operator": "==",
                         "value": "custom"
                     },
                     {
-                        "field": "field_691b479167826",
+                        "field": "field_69defcf6eb909",
                         "operator": "!=",
                         "value": "1"
                     }
@@ -684,7 +667,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_691a8a6795dd1",
+                    "key": "field_69defcf720d7d",
                     "label": "Picture",
                     "name": "picture",
                     "aria-label": "",
@@ -708,10 +691,10 @@
                     "mime_types": "",
                     "allow_in_bindings": 0,
                     "preview_size": "medium",
-                    "parent_repeater": "field_691a8a3595dd0"
+                    "parent_repeater": "field_69defcf6f3138"
                 },
                 {
-                    "key": "field_691a8a8895dd2",
+                    "key": "field_69defcf7247a0",
                     "label": "Title",
                     "name": "title",
                     "aria-label": "",
@@ -730,10 +713,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_691a8a3595dd0"
+                    "parent_repeater": "field_69defcf6f3138"
                 },
                 {
-                    "key": "field_691a8a9695dd3",
+                    "key": "field_69defcf72829c",
                     "label": "Content",
                     "name": "content",
                     "aria-label": "",
@@ -752,10 +735,10 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
-                    "parent_repeater": "field_691a8a3595dd0"
+                    "parent_repeater": "field_69defcf6f3138"
                 },
                 {
-                    "key": "field_691a922930651",
+                    "key": "field_69defcf72bdde",
                     "label": "Link",
                     "name": "link",
                     "aria-label": "",
@@ -770,12 +753,12 @@
                     },
                     "return_format": "array",
                     "allow_in_bindings": 0,
-                    "parent_repeater": "field_691a8a3595dd0"
+                    "parent_repeater": "field_69defcf6f3138"
                 }
             ]
         },
         {
-            "key": "field_691a42de1b00d",
+            "key": "field_69defcf702969",
             "label": "CTA Link",
             "name": "cta_link",
             "aria-label": "",
@@ -785,7 +768,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691a42dddeeee",
+                        "field": "field_69defcf6b09f5",
                         "operator": "==",
                         "value": "1"
                     }
@@ -821,5 +804,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775717070
+    "modified": 1776221454
 }

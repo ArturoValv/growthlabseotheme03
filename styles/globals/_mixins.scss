@@ -17,14 +17,8 @@
   $font-size-mid: null,
   $font-size-max: null,
   $font-weight: 400,
-  $line-height: 1.25,
-  $after: false
+  $line-height: 1.25
 ) {
-  // Color handling with CSS variable fallback
-  @if $after {
-    padding-bottom: var(--sp-xsm);
-  }
-
   position: relative;
   color: if($color != null, $color, rgb(var(--primary)));
   font-family: var(--font-titles);
@@ -43,23 +37,6 @@
     font-size: clamp($font-size-min, $font-size-mid, $font-size-max);
   } @else {
     font-size: clamp(3.2rem, 3.33vw, 3.6rem);
-  }
-
-  @if $after != false {
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 35%;
-      height: 6px;
-      background: linear-gradient(
-        180deg,
-        rgb(var(--tertiary)) 0%,
-        rgb(var(--tertiary-light)) 50%,
-        rgb(var(--tertiary)) 100%
-      );
-    }
   }
 }
 

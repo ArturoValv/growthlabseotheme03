@@ -45,12 +45,13 @@ if (get_field('toggle_block')):
         block 
         posts-carousel
         <?php if ($carousel_type === "team") echo " bg-gradient"; ?>
+        <?= isset($background_type) && $background_type ? $background_type : 'light' ?>
         <?= $carousel_type ?>
         "
         <?php if (isset($extract_block_from_content) && $extract_block_from_content) echo "data-extract='$place'"; ?>>
 
         <?php
-        if (isset($background_image) && $background_image) img_print_picture_tag(img: $background_image, is_cover: true, classes: "posts-carousel__bg bg-image gradient-overlay");
+        if (isset($background_image) && $background_image && isset($background_type) && $background_type === 'image') img_print_picture_tag(img: $background_image, is_cover: true, classes: "posts-carousel__bg bg-image");
         ?>
 
         <div class="posts-carousel__wrapper container">
@@ -60,7 +61,7 @@ if (get_field('toggle_block')):
             if (isset($title) && $title) print_title($title, $title_tag, "posts-carousel__title tx-center");
             ?>
 
-            <?php if (isset($pretitle) && $text_content): ?>
+            <?php if (isset($text_content) && $text_content): ?>
                 <div class="posts-carousel__content formatted-text tx-center">
                     <?= $text_content ?>
                 </div>

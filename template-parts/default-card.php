@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
         echo "<div class='default-card__wrapper'>";
     }
     if (isset($args['picture']) && $args['picture'] && $args['picture'] !== '') {
-        img_print_picture_tag(img: $args["picture"], max_size: "featured-small", min_size: "featured-small", classes: "default-card__pic");
+        img_print_picture_tag(img: $args["picture"], max_size: "cover-mobile", min_size: "featured-small", classes: "default-card__pic");
     } else {
         include get_stylesheet_directory() . '/assets/icons/icon-file-image.svg';
     }
@@ -23,6 +23,7 @@ if (!defined('ABSPATH')) {
     <div class="default-card__inner tx-center">
 
         <p class="default-card__title"><?= $args["title"] ?></p>
+        <p class="default-card__link">READ MORE</p>
 
     </div>
 

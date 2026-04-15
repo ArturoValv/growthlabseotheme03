@@ -177,15 +177,7 @@
 
   &__title {
     text-transform: uppercase;
-    @include m.title(
-      rgba(var(--secondary-light)),
-      2.2rem,
-      4vw,
-      6rem,
-      500,
-      1,
-      true
-    );
+    @include m.title(rgba(var(--secondary-light)), 2.2rem, 4vw, 6rem, 500, 1);
 
     @media (min-width: v.$ldpi) {
       text-align: left;

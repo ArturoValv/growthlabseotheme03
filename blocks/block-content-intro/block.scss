@@ -156,7 +156,7 @@
       padding-bottom: var(--sp-xsm);
       flex: 0 0 100%;
       border-bottom: 2px solid rgb(var(--primary));
-      @include m.title(rgba(var(--tertiary)), 4rem, 2vw, 6rem, 700, 0.9, false);
+      @include m.title(rgba(var(--tertiary)), 4rem, 2vw, 6rem, 700, 0.9);
       text-transform: uppercase;
       text-align: center;
 

@@ -77,14 +77,7 @@
 
   &__title {
     margin: 0;
-    @include m.title(
-      rgb(var(--secondary)),
-      4rem,
-      2.5vw,
-      6.5rem,
-      700,
-      $after: false
-    );
+    @include m.title(rgb(var(--secondary)), 4rem, 2.5vw, 6.5rem, 700);
 
     & > * {
       all: inherit;

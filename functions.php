@@ -10,6 +10,7 @@
  * 
  */
 
+
 // Definir breakpoints personalizados para este tema
 $GLOBALS['breakpoints'] = [
     'mobile' => '0px',

@@ -320,15 +320,7 @@ img.bg-image {
 
 .pretitle {
   margin-bottom: var(--sp-xsm);
-  @include m.title(
-    rgba(var(--tertiary-light)),
-    1.8rem,
-    2vw,
-    2.2rem,
-    500,
-    1,
-    false
-  );
+  @include m.title(rgba(var(--tertiary-light)), 1.8rem, 2vw, 2.2rem, 500, 1);
   text-transform: uppercase;
 }
 
