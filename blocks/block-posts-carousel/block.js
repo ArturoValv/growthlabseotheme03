@@ -21,7 +21,8 @@ if (!window.loadSplide) {
           window.__splideCallbacks = [];
           return;
         }
-        if (attempts < 10) { // Retry up to 10 times
+        if (attempts < 10) {
+          // Retry up to 10 times
           setTimeout(() => checkSplide(attempts + 1), 100); // Check every 100ms
         } else {
           console.error("Splide failed to load after retries");
@@ -38,11 +39,19 @@ if (!window.loadSplide) {
 
 (() => {
   const postsCarousels = document.querySelectorAll(".posts-carousel__carousel");
+  const thumbnailsCarousel = document.querySelector("#thumbnail-carousel");
   if (!postsCarousels.length) return;
 
   const initCarousel = (carousel) => {
     const carouselType = carousel.dataset.type;
     const splideElement = carousel.querySelector(".splide");
+
+    const container = getComputedStyle(document.documentElement)
+      .getPropertyValue("--container")
+      .trim();
+    const postsSize = getComputedStyle(thumbnailsCarousel)
+      .getPropertyValue("--size")
+      .trim();
 
     let perPageTablet =
       carouselType === "testimonial" || carouselType === "team"
@@ -65,12 +74,14 @@ if (!window.loadSplide) {
     if (!splideElement) return;
 
     loadSplide(() => {
-      new Splide(splideElement, {
+      let main = new Splide(splideElement, {
         type: "loop",
         perPage: 1,
         perMove: 1,
         arrows: true,
         pagination: false,
+        updateOnMove: carouselType === "team",
+        speed: 400,
         mediaQuery: "min",
         breakpoints: {
           [tablet]: {
@@ -84,7 +95,30 @@ if (!window.loadSplide) {
             trimSpace: trimFor(perPageLdpi),
           },
         },
-      }).mount();
+      });
+
+      let thumbnails = new Splide(thumbnailsCarousel, {
+        fixedWidth:
+          document.querySelector(".posts-carousel__wrapper").clientWidth /
+            parseFloat(postsSize) -
+          15,
+        rewind: true,
+        arrows: true,
+        pagination: false,
+        isNavigation: true,
+        updateOnMove: true,
+        speed: 400,
+        mediaQuery: "min",
+        breakpoints: {
+          [mdpi]: {
+            fixedWidth: parseFloat(container) / parseFloat(postsSize) - 15,
+          },
+        },
+      });
+
+      if (carouselType === "team") main.sync(thumbnails);
+      main.mount();
+      if (carouselType === "team") thumbnails.mount();
     });
   };
 

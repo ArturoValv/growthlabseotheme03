@@ -1266,7 +1266,7 @@ if (!function_exists('img_generate_picture_tag')) {
         // SVG: delegate to theme helper if available.
         if (in_array($fields['mime_type'], ['image/svg+xml', 'image/svg'], true)) {
             if (function_exists('image_to_svg')) {
-                return image_to_svg($img);
+                return image_to_svg($img, $classes);
             }
             return '';
         }

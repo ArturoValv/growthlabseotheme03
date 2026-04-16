@@ -38,6 +38,9 @@ if (get_field('toggle_block')):
     );
 
     $query = new WP_Query($args);
+
+    $options = get_field_options("options");
+
 ?>
 
     <section
@@ -52,20 +55,31 @@ if (get_field('toggle_block')):
 
         <?php
         if (isset($background_image) && $background_image && isset($background_type) && $background_type === 'image') img_print_picture_tag(img: $background_image, is_cover: true, classes: "posts-carousel__bg bg-image");
+
+        if (isset($options["logo_symbol"]) && $options["logo_symbol"]) img_print_picture_tag(img: $options["logo_symbol"], classes: "posts-carousel__symbol");
         ?>
 
         <div class="posts-carousel__wrapper container">
 
-            <?php
-            if (isset($pretitle) && $pretitle) print_title($pretitle, $pretitle_tag, "posts-carousel__pretitle pretitle tx-center");
-            if (isset($title) && $title) print_title($title, $title_tag, "posts-carousel__title tx-center");
-            ?>
+            <div class="posts-carousel__content">
+                <?php
+                if (isset($title) && $title) print_title($title, $title_tag, "posts-carousel__title tx-center");
+                if (isset($subtitle) && $subtitle) print_title($subtitle, $subtitle_tag, "posts-carousel__subtitle tx-center");
+                ?>
 
-            <?php if (isset($text_content) && $text_content): ?>
-                <div class="posts-carousel__content formatted-text tx-center">
-                    <?= $text_content ?>
-                </div>
-            <?php endif ?>
+                <?php if (isset($text_content) && $text_content): ?>
+                    <div class="posts-carousel__content formatted-text tx-center">
+                        <?= $text_content ?>
+                    </div>
+                <?php endif ?>
+
+
+                <?php if (isset($cta_link) && $cta_link): ?>
+                    <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="posts-carousel__link btn--primary-dark" aria-label="<?= esc_attr($cta_link['title']) ?>">
+                        <span><?= $cta_link['title'] ?></span>
+                    </a>
+                <?php endif ?>
+            </div>
 
             <div class="posts-carousel__carousel" data-type=<?= $carousel_type ?>>
 
@@ -106,10 +120,9 @@ if (get_field('toggle_block')):
                                                 "classes" => "splide__slide posts-carousel__card",
                                                 "picture" => $headshot,
                                                 "title" => get_the_title(),
-                                                "role" => $role,
                                                 "content" => get_the_excerpt(),
                                                 "link_url" => get_the_permalink(),
-                                                "link_target" => '_blank',
+                                                "link_target" => $link_target ?? '_self',
                                             ));
                                             break;
 
@@ -121,7 +134,7 @@ if (get_field('toggle_block')):
                                                 "title" => get_the_title(),
                                                 "excerpt" => get_the_excerpt(),
                                                 "link_url" => get_the_permalink(),
-                                                "link_target" => '_blank',
+                                                "link_target" => $link_target ?? '_self',
                                             ));
                                             break;
 
@@ -140,7 +153,7 @@ if (get_field('toggle_block')):
                                                 "picture" => get_the_post_thumbnail_url(),
                                                 "title" => get_the_title(),
                                                 "link_url" => get_the_permalink(),
-                                                "link_target" => '_blank',
+                                                "link_target" => $link_target ?? '_self',
                                             ));
                                             break;
                                     }
@@ -159,7 +172,49 @@ if (get_field('toggle_block')):
                     ?>
 
                 </div>
+
             </div>
+
+            <?php if ($carousel_type === "team"): ?>
+                <div
+                    id="thumbnail-carousel"
+                    class="splide"
+                    style="--size:<?= count($posts) ?>">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <?php if (isset($query) && $query->have_posts()) :
+                                $bg_item_url = get_template_directory_uri() . '\assets\img\thumbnail-bg.webp';
+                                while ($query->have_posts()) :
+                                    $query->the_post();
+
+                                    if (!empty(get_fields(get_the_ID()))) foreach (get_fields(get_the_ID()) as $field => $content) $$field = $content;
+                            ?>
+                                    <li class="splide__slide thumbnail">
+                                        <div class="thumbnail__wrapper">
+                                            <img data-src="<?= $bg_item_url ?>" alt="" class="thumbnail__bg lazy-image">
+                                            <?php
+                                            if (isset($headshot) && $headshot) {
+                                                img_print_picture_tag(img: $headshot, max_size: "featured-small", classes: "thumbnail__pic");
+                                            } else {
+                                                include get_stylesheet_directory() . '/assets/icons/icon-file-image.svg';
+                                            }
+                                            ?>
+                                        </div>
+                                    </li>
+
+                            <?php endwhile;
+                            endif; ?>
+                        </ul>
+                    </div>
+
+                    <?php
+                    get_template_part('template-parts/splide', 'navigation', array(
+                        'nav_link' => "",
+                        'classes' => 'thumbnails__arrows'
+                    ));
+                    ?>
+                </div>
+            <?php endif; ?>
 
         </div>
     </section>

@@ -318,12 +318,6 @@ img.bg-image {
   text-align: center;
 }
 
-.pretitle {
-  margin-bottom: var(--sp-xsm);
-  @include m.title(rgba(var(--tertiary-light)), 1.8rem, 2vw, 2.2rem, 500, 1);
-  text-transform: uppercase;
-}
-
 :where(.formatted-text) {
   font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-family: var(--font-content);
@@ -506,19 +500,27 @@ img.bg-image {
   }
 
   &--secondary {
+    @extend .btn;
     background: rgb(var(--secondary-light));
-    border: 1px solid rgb(var(--tertiary));
+
+    &::before {
+      content: none;
+    }
 
     span {
-      color: rgb(var(--primary));
+      color: rgb(var(--tertiary));
     }
 
     &:hover {
-      background: rgb(var(--secondary));
+      background: rgb(var(--tertiary-light));
+      span {
+        color: rgb(var(--secondary));
+      }
     }
   }
 
   &--tertiary {
+    @extend .btn;
     background: rgb(var(--tertiary));
 
     &::before {

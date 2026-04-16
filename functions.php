@@ -325,24 +325,6 @@ add_filter('excerpt_more', 'wpdocs_excerpt_more');
  * @return void
  */
 
-// Function to check if Splide should be loaded
-/* function should_load_splide()
-{
-    if (!is_singular() || !function_exists('parse_blocks')) return false;
-
-    global $post;
-    if (!$post) return false;
-
-    $content = $post->post_content;
-    $blocks = parse_blocks($content);
-    foreach ($blocks as $block) {
-        if ($block['blockName'] === 'acf/posts-carousel' || $block['blockName'] === 'acf/logos-carousel') {
-            return true;
-        }
-    }
-    return false;
-}
- */
 function inline_main_critical_css()
 {
     global $block_critical_css;
