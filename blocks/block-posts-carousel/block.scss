@@ -102,7 +102,7 @@
 
       #thumbnail-carousel {
         width: 100%;
-        margin-top: -2.5rem;
+        margin-top: calc(-1 * (28rem - ((var(--container) / var(--size)))) );
         display: block;
 
         .splide__track {
