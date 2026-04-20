@@ -13,6 +13,7 @@ if (get_field('toggle_block')):
         block 
         content-intro
         <?= isset($background_type) && $background_type ? $background_type : 'light' ?>
+        <?= isset($background_type) && $background_type ? $background_type : 'light' ?>
         "
         <?php if (isset($extract_block_from_content) && $extract_block_from_content) echo "data-extract='$place'"; ?>>
 
@@ -24,14 +25,14 @@ if (get_field('toggle_block')):
 
             <?php foreach (get_field("columns") as $column => $col) $$column = $col; ?>
 
-            <div class="col col--image">
+            <div class="col col--image <?= isset($featured_image_position) && $featured_image_position ? $featured_image_position : "left" ?>">
                 <?php
                 if (isset($featured_image) && $featured_image) {
                     get_template_part("template-parts/logo", "separator", ["classes" => "col__symbol"]);
 
                     img_print_picture_tag(
                         img: $featured_image,
-                        max_size: "cover-mobile",
+                        max_size: $featured_image_position !== "bottom" ? "cover-mobile" : "cover-desktop",
                         min_size: "featured-small",
                         classes: "col__image"
                     );
