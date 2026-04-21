@@ -225,7 +225,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "url",
             "library": "all",
             "min_size": "",
             "max_size": "",
@@ -285,7 +285,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/faq"
+                "value": "acf\/featured-video"
             }
         ]
     ],
@@ -301,5 +301,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776714114
+    "modified": 1776748814
 }

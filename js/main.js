@@ -188,7 +188,7 @@ function findConsecutiveGroups() {
           }
         });
       },
-      { rootMargin: "100px" }
+      { rootMargin: "100px" },
     );
 
     group.forEach((el) => {
@@ -387,7 +387,7 @@ window.addEventListener("load", () => {
 (function lazyLoadImages() {
   "use strict";
 
-  const lazyImages = document.querySelectorAll('.lazy-image');
+  const lazyImages = document.querySelectorAll(".lazy-image");
 
   if (!lazyImages.length) return;
 
@@ -398,35 +398,35 @@ window.addEventListener("load", () => {
 
         const img = entry.target;
         const src = img.dataset.src;
-        const picture = img.closest('picture');
+        const picture = img.closest("picture");
 
         if (src) {
           img.src = src;
-          img.removeAttribute('data-src');
+          img.removeAttribute("data-src");
         }
 
         if (picture) {
-          const sources = picture.querySelectorAll('source');
+          const sources = picture.querySelectorAll("source");
           sources.forEach((source) => {
             const srcset = source.dataset.srcset;
             if (srcset) {
               source.srcset = srcset;
-              source.removeAttribute('data-srcset');
+              source.removeAttribute("data-srcset");
             }
           });
         }
 
-        img.classList.remove('lazy-image');
+        img.classList.remove("lazy-image");
         observer.unobserve(img);
       });
     },
-    { rootMargin: '100px' }
+    { rootMargin: "100px" },
   );
 
   // Function to observe new lazy images
   const observeNewImages = (images) => {
     images.forEach((img) => {
-      if (!img.classList.contains('lazy-image')) return; // Skip if already loaded
+      if (!img.classList.contains("lazy-image")) return; // Skip if already loaded
       observer.observe(img);
     });
   };
@@ -440,11 +440,13 @@ window.addEventListener("load", () => {
       mutation.addedNodes.forEach((node) => {
         if (node.nodeType === Node.ELEMENT_NODE) {
           // Check if the added node is a lazy image
-          if (node.classList && node.classList.contains('lazy-image')) {
+          if (node.classList && node.classList.contains("lazy-image")) {
             observeNewImages([node]);
           }
           // Also check descendants
-          const newLazyImages = node.querySelectorAll ? node.querySelectorAll('.lazy-image') : [];
+          const newLazyImages = node.querySelectorAll
+            ? node.querySelectorAll(".lazy-image")
+            : [];
           observeNewImages(newLazyImages);
         }
       });
@@ -454,33 +456,33 @@ window.addEventListener("load", () => {
   // Start observing the entire document for changes
   mutationObserver.observe(document.body, {
     childList: true,
-    subtree: true
+    subtree: true,
   });
 
   // Fallback: Load all images after 5 seconds if JS fails
   const fallbackTimer = setTimeout(() => {
-    const allLazyImages = document.querySelectorAll('.lazy-image');
+    const allLazyImages = document.querySelectorAll(".lazy-image");
     allLazyImages.forEach((img) => {
       const src = img.dataset.src;
-      const picture = img.closest('picture');
+      const picture = img.closest("picture");
 
       if (src) {
         img.src = src;
-        img.removeAttribute('data-src');
+        img.removeAttribute("data-src");
       }
 
       if (picture) {
-        const sources = picture.querySelectorAll('source');
+        const sources = picture.querySelectorAll("source");
         sources.forEach((source) => {
           const srcset = source.dataset.srcset;
           if (srcset) {
             source.srcset = srcset;
-            source.removeAttribute('data-srcset');
+            source.removeAttribute("data-srcset");
           }
         });
       }
 
-      img.classList.remove('lazy-image');
+      img.classList.remove("lazy-image");
     });
     mutationObserver.disconnect(); // Stop observing after fallback
   }, 5000);
@@ -489,10 +491,10 @@ window.addEventListener("load", () => {
     // Initial observation already done
   };
 
-  if (document.readyState === 'complete') {
+  if (document.readyState === "complete") {
     init();
   } else {
-    window.addEventListener('load', init, { once: true });
+    window.addEventListener("load", init, { once: true });
   }
 })();
 
@@ -500,29 +502,251 @@ window.addEventListener("load", () => {
 (function observeSectionVisibility() {
   "use strict";
 
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll("section");
 
   if (!sections.length) return;
 
   const visibilityObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !entry.target.hasAttribute('data-visible')) {
-          entry.target.setAttribute('data-visible', 'true');
+        if (
+          entry.isIntersecting &&
+          !entry.target.hasAttribute("data-visible")
+        ) {
+          entry.target.setAttribute("data-visible", "true");
         }
         // Do not remove the attribute when exiting
       });
     },
-    { rootMargin: '0px', threshold: 0.1 } // Adjust threshold as needed
+    { rootMargin: "0px", threshold: 0.1 }, // Adjust threshold as needed
   );
 
   const initVisibility = () => {
     sections.forEach((section) => visibilityObserver.observe(section));
   };
 
-  if (document.readyState === 'complete') {
+  if (document.readyState === "complete") {
     initVisibility();
   } else {
-    window.addEventListener('load', initVisibility, { once: true });
+    window.addEventListener("load", initVisibility, { once: true });
   }
+})();
+
+// Playback Video
+(function () {
+  // ─── Detección de fuente ─────────────────────────────────────────────────────
+
+  function isLocalVideo(videoId) {
+    if (!videoId) return false;
+    if (videoId.startsWith(`${siteData["homeURL"]}/wp-content/`)) return true;
+    try {
+      return (
+        new URL(videoId, window.location.href).hostname ===
+        window.location.hostname
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  function extractYouTubeID(url) {
+    const regex =
+      /(?:youtube(?:-nocookie)?\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?/ ]{11})/i;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
+
+  function detectSource(trigger, rawValue) {
+    if (isLocalVideo(rawValue)) return "local";
+    if (trigger.classList.contains("ig-video")) return "instagram";
+    if (extractYouTubeID(rawValue)) return "youtube";
+    return "unknown";
+  }
+
+  // ─── Resolución del video ID ─────────────────────────────────────────────────
+  // Acepta tanto data-videourl (URL completa) como data-videoid (ID directo)
+
+  function resolveVideoId(trigger, source) {
+    const raw = trigger.dataset.videourl || trigger.dataset.videoid || "";
+    if (source === "youtube") return extractYouTubeID(raw) || raw;
+    return raw;
+  }
+
+  // ─── Constructores de player ─────────────────────────────────────────────────
+
+  function buildIframe(attrs) {
+    const attrStr = Object.entries(attrs)
+      .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
+      .join(" ");
+    return `<iframe ${attrStr}></iframe>`;
+  }
+
+  function buildPlayer(source, videoId, autoplay = false) {
+    switch (source) {
+      case "youtube":
+        return buildIframe({
+          src: `https://www.youtube.com/embed/${videoId}?enablejsapi=1&rel=0&autoplay=${autoplay ? 1 : 0}`,
+          title: "YouTube video player",
+          frameborder: "0",
+          allow:
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+          allowfullscreen: true,
+        });
+
+      case "instagram":
+        return buildIframe({
+          class: "instagram-media instagram-media-rendered",
+          src: `https://www.instagram.com/reel/${videoId}/embed/?cr=1&v=14&wp=1080`,
+          allowtransparency: "true",
+          allowfullscreen: true,
+          frameborder: "0",
+          scrolling: "no",
+          style: [
+            "background:white",
+            "max-width:540px",
+            "width:calc(100% - 2px)",
+            "border-radius:3px",
+            "border:1px solid rgb(219,219,219)",
+            "display:block",
+            "margin:0 0 12px",
+            "min-width:326px",
+            "padding:0",
+          ].join(";"),
+        });
+
+      case "local":
+        return `<video controls ${autoplay ? "autoplay" : ""} playsinline>
+                  <source src="${videoId}" type="video/mp4">
+                </video>`;
+
+      default:
+        console.warn("[VideoPlayer] Fuente de video no reconocida:", videoId);
+        return "";
+    }
+  }
+
+  // ─── Modo lightbox ───────────────────────────────────────────────────────────
+
+  function openLightbox(source, videoId) {
+    if (document.getElementById("video-overlay")) return;
+
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      `<div id="video-overlay" class="${source === "instagram" ? "ig-video" : ""}" role="dialog" aria-modal="true">
+        <button class="overlay-close" aria-label="Cerrar video">✕</button>
+        <div class="video-container">
+          ${buildPlayer(source, videoId, true)}
+        </div>
+      </div>`,
+    );
+
+    const overlay = document.getElementById("video-overlay");
+    const container = overlay.querySelector(".video-container");
+    const iframe = overlay.querySelector("iframe");
+
+    overlay
+      .querySelector(".overlay-close")
+      .addEventListener("click", closeOverlay);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeOverlay();
+    });
+    document.addEventListener("keydown", handleKeydown);
+
+    // Activar transición: display:flex requiere un frame para que el transition funcione
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        overlay.classList.add("active");
+        container.classList.add("active");
+
+        // Autoplay diferido: esperar a que el iframe esté rendered
+        if (iframe && source === "youtube") {
+          iframe.addEventListener(
+            "load",
+            () => {
+              iframe.src = iframe.src.replace("autoplay=0", "autoplay=1");
+            },
+            { once: true },
+          );
+        }
+      }),
+    );
+  }
+
+  function closeOverlay() {
+    const overlay = document.getElementById("video-overlay");
+    if (!overlay) return;
+
+    const container = overlay.querySelector(".video-container");
+    const iframe = overlay.querySelector("iframe");
+    const video = overlay.querySelector("video");
+
+    if (iframe) iframe.src = "";
+    if (video) video.pause();
+
+    overlay.classList.remove("active");
+    container.classList.remove("active");
+    document.removeEventListener("keydown", handleKeydown);
+
+    setTimeout(() => overlay.remove(), 500);
+  }
+
+  function handleKeydown(e) {
+    if (e.key === "Escape") closeOverlay();
+  }
+
+  // ─── Modo inline ─────────────────────────────────────────────────────────────
+
+  function openInline(trigger, source, videoId) {
+    const container = trigger.dataset.target
+      ? document.querySelector(trigger.dataset.target)
+      : null;
+
+    if (!container) {
+      console.warn(
+        "[VideoPlayer] Inline container not found. Fallback to lightbox.",
+      );
+      openLightbox(source, videoId);
+      return;
+    }
+
+    const prevIframe = container.querySelector("iframe");
+    const prevVideo = container.querySelector("video");
+    if (prevIframe) prevIframe.src = "";
+    if (prevVideo) prevVideo.pause();
+
+    container.innerHTML = buildPlayer(source, videoId, true);
+    container.classList.add("active");
+    container.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // ─── Init ────────────────────────────────────────────────────────────────────
+
+  function init() {
+    // Event delegation — cubre botones estáticos y dinámicos (AJAX, Gutenberg, etc.)
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest("[data-videourl], [data-videoid]");
+      if (!trigger) return;
+
+      e.preventDefault();
+
+      const raw = (
+        trigger.dataset.videourl ||
+        trigger.dataset.videoid ||
+        ""
+      ).trim();
+      if (!raw) return;
+
+      const source = detectSource(trigger, raw);
+      const videoId = resolveVideoId(trigger, source);
+      const mode = trigger.dataset.mode || "lightbox";
+
+      mode === "inline"
+        ? openInline(trigger, source, videoId)
+        : openLightbox(source, videoId);
+    });
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", init)
+    : init();
 })();
