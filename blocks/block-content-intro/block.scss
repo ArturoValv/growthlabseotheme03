@@ -54,8 +54,11 @@
   }
 
   &:has(.col--image.bottom) {
-    padding-bottom: 65rem;
-    background-color: rgb(var(--secondary-light))
+    padding-bottom: 5rem;
+    background-color: rgb(var(--secondary-light));
+    @media (min-width: v.$ldpi) {
+      padding-bottom: 65rem;
+    }
   }
 
   &__wrapper {
@@ -77,6 +80,7 @@
   }
 
   .col {
+    max-width: 100%;
     padding: var(--sp-xsm);
     @include m.flex-center;
     justify-content: flex-end;
@@ -97,12 +101,16 @@
 
       &.bottom {
         width: 100%;
-        max-height: 65rem;
+        max-height: 35rem;
         padding: 0;
         position: absolute;
         bottom: 0;
         left: 0;
         @include m.flex-center;
+
+        @media (min-width: v.$ldpi) {
+          max-height: 65rem;
+        }
 
         picture {
           width: 100% !important;
@@ -138,6 +146,12 @@
               drop-shadow(1px 1px 1px rgba(0, 0, 0, 1));
             opacity: 0.2;
           }
+
+          svg {
+            path {
+              fill: rgb(var(--secondary), 0.2);
+            }
+          }
         }
 
         & + .col {
@@ -169,11 +183,17 @@
         & ~ .inner-cta-box:not(:has(.inner-cta-box__content)) {
           grid-column: 1/2;
           grid-row: 2/3;
-          align-self: end;
+
+          @media (min-width: v.$ldpi) {
+            align-self: end;
+          }
 
           .inner-cta-box__buttons {
-            padding-left: var(--sp-sm);
             padding-bottom: var(--sp-sm);
+
+            @media (min-width: v.$ldpi) {
+              padding-left: var(--sp-sm);
+            }
           }
         }
       }
@@ -256,6 +276,10 @@
         color: currentColor;
         font-weight: inherit;
         line-height: inherit;
+
+        @media (max-width: v.$ldpi) {
+          font-size: clamp(4rem, 2vw, 6rem) !important;
+        }
       }
     }
 
