@@ -51,6 +51,18 @@
       height: 100%;
       display: block;
     }
+
+    hr {
+      width: 85%;
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      background-color: rgba(var(--primary-dark));
+      border-radius: 5px;
+    }
   }
 
   &__cover {

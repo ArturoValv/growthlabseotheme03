@@ -43,6 +43,7 @@ if (get_field('toggle_block')):
             <?php
             endif;
             ?>
+            <hr>
         </div>
 
     </section>
