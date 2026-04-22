@@ -157,11 +157,11 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_6996ad8c317c9",
-            "label": "Light\/Dark Background",
-            "name": "lightdark_background",
+            "key": "field_69e71792a65e5",
+            "label": "Background Type",
+            "name": "background_type",
             "aria-label": "",
-            "type": "true_false",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -170,12 +170,21 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "light": "Light",
+                "dark": "Dark",
+                "image": "Image"
+            },
+            "default_value": "light",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
             "allow_in_bindings": 0,
-            "ui_on_text": "Light",
-            "ui_off_text": "Dark",
-            "ui": 1
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_691cb854d189c",
@@ -188,14 +197,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_691cb854bf33b",
+                        "field": "field_69e71792a65e5",
                         "operator": "==",
-                        "value": "1"
-                    },
-                    {
-                        "field": "field_6912bfc9d31b0",
-                        "operator": "==",
-                        "value": "full"
+                        "value": "image"
                     }
                 ]
             ],
@@ -218,10 +222,10 @@
         },
         {
             "key": "field_6992334b5537c",
-            "label": "Side Images",
-            "name": "side_images",
+            "label": "Side Image",
+            "name": "side_image",
             "aria-label": "",
-            "type": "repeater",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -230,42 +234,17 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 2,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_699233715537d",
-                    "label": "Image",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium",
-                    "parent_repeater": "field_6992334b5537c"
-                }
-            ]
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         },
         {
             "key": "field_691cb854d5323",
@@ -339,69 +318,6 @@
             "save_options": 0
         },
         {
-            "key": "field_699237924f11d",
-            "label": "Subtitle",
-            "name": "subtitle",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_699237a04f11e",
-            "label": "Subtitle Tag",
-            "name": "subtitle_tag",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_691cb854bf33b",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h1": "h1",
-                "h2": "h2",
-                "h3": "h3",
-                "h4": "h4",
-                "h5": "h5",
-                "h6": "h6",
-                "p": "p"
-            },
-            "default_value": "p",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
-        },
-        {
             "key": "field_691cb854e7702",
             "label": "Text Content",
             "name": "text_content",
@@ -423,9 +339,9 @@
             "delay": 0
         },
         {
-            "key": "field_691cb883e133e",
-            "label": "FAQ Sections",
-            "name": "faq_sections",
+            "key": "field_691cbac587722",
+            "label": "FAQ Items",
+            "name": "faq_items",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -437,30 +353,22 @@
                 "id": ""
             },
             "layout": "block",
-            "pagination": 0,
             "min": 0,
             "max": 0,
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
+            "parent_repeater": "field_691cb883e133e",
             "sub_fields": [
                 {
-                    "key": "field_691cbc2a87723",
-                    "label": "Heading",
-                    "name": "heading",
+                    "key": "field_691cb9a8e133f",
+                    "label": "Question",
+                    "name": "question",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_691cb854bf33b",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
+                    "required": 1,
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -472,12 +380,12 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_691cb883e133e"
+                    "parent_repeater": "field_691cbac587722"
                 },
                 {
-                    "key": "field_691cbc7587724",
-                    "label": "Heading Tag",
-                    "name": "heading_tag",
+                    "key": "field_691cb9bbe1340",
+                    "label": "Question Tag",
+                    "name": "question_tag",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -515,118 +423,29 @@
                     "placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
-                    "parent_repeater": "field_691cb883e133e"
+                    "parent_repeater": "field_691cbac587722"
                 },
                 {
-                    "key": "field_691cbac587722",
-                    "label": "FAQ Items",
-                    "name": "faq_items",
+                    "key": "field_691cb9cbe1341",
+                    "label": "Answer",
+                    "name": "answer",
                     "aria-label": "",
-                    "type": "repeater",
+                    "type": "wysiwyg",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
-                    "rows_per_page": 20,
-                    "parent_repeater": "field_691cb883e133e",
-                    "sub_fields": [
-                        {
-                            "key": "field_691cb9a8e133f",
-                            "label": "Question",
-                            "name": "question",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_691cbac587722"
-                        },
-                        {
-                            "key": "field_691cb9bbe1340",
-                            "label": "Question Tag",
-                            "name": "question_tag",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_691cb854bf33b",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "h1": "h1",
-                                "h2": "h2",
-                                "h3": "h3",
-                                "h4": "h4",
-                                "h5": "h5",
-                                "h6": "h6",
-                                "p": "p"
-                            },
-                            "default_value": "p",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0,
-                            "parent_repeater": "field_691cbac587722"
-                        },
-                        {
-                            "key": "field_691cb9cbe1341",
-                            "label": "Answer",
-                            "name": "answer",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "allow_in_bindings": 0,
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0,
-                            "parent_repeater": "field_691cbac587722"
-                        }
-                    ]
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "parent_repeater": "field_691cbac587722"
                 }
             ]
         },
@@ -682,5 +501,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775717069
+    "modified": 1776801630
 }

@@ -117,12 +117,20 @@ if (!function_exists('get_flat_number')) {
     }
 }
 
+if (!function_exists('get_wrapped_title')) {
+    function get_wrapped_title($title, $tag = 'p', $classes = '', $is_hero = false)
+    {
+        if (!$title) return;
+        $tag = $tag ?? ($is_hero ? 'h1' : 'p');
+        return "<$tag class='$classes'>" . $title . "</$tag>";
+    }
+}
+
 if (!function_exists('print_title')) {
     function print_title($title, $tag = 'p', $classes = '', $is_hero = false)
     {
         if (!$title) return;
-        $tag = $tag ?? ($is_hero ? 'h1' : 'p');
-        echo "<$tag class='$classes'>" . $title . "</$tag>";
+        echo get_wrapped_title($title, $tag, $classes, $is_hero);
     }
 }
 

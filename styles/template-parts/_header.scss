@@ -30,7 +30,7 @@
         background-color: transparent;
       }
 
-      @media (max-width: v.$ldpi) {
+      @media (max-width: calc(v.$ldpi - 1px)) {
         .phone {
           background-color: transparent;
         }

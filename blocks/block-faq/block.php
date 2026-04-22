@@ -9,42 +9,27 @@ if (get_field('toggle_block')):
 
     <section
         id="<?= $block_id ?? "" ?>"
-        class="block faq <?php if (!$background_image && !isset($$background_image) && !$lightdark_background) echo "bg-gradient"; ?>"
+        class="block faq <?= isset($background_type) && $background_type ? $background_type : 'light' ?>"
         <?php if (isset($extract_block_from_content) && $extract_block_from_content) echo "data-extract='$place'"; ?>>
 
         <?php
-        if (isset($background_image) && $background_image) img_print_picture_tag(img: $background_image, is_cover: true, classes: "faq__bg bg-image gradient-overlay");
+        if (isset($background_image) && $background_image && isset($background_type) && $background_type === 'image') img_print_picture_tag(img: $background_image, is_cover: true, classes: "faq__bg bg-image gradient-overlay");
+        ?>
+
+        <?php
+        $options = get_field_options("options");
+        if (isset($side_image) && !empty($side_image)) {
+            img_print_picture_tag(img: $side_image, max_size: "content", min_size: "featured-small", classes: "faq__side-image");
+        } elseif ($options["logo_symbol"]) {
+            img_print_picture_tag(img: $options["logo_symbol"], max_size: "medium", classes: "faq__symbol");
+        }
         ?>
 
         <div class="faq__wrapper container">
-            <?php
-            if (isset($side_images) && !empty($side_images)) :
-            ?>
-                <div class="faq__side-images">
-                    <?php
-
-                    foreach ($side_images as $image) {
-                        img_print_picture_tag(img: $image['image'], max_size: "content", min_size: "featured-small", classes: "faq__side-image");
-                    }
-
-                    $options = get_field_options("options");
-
-                    if ($options["logo_symbol"]) {
-                        echo "<div class='faq__separator'>";
-                        img_print_picture_tag(img: $options["logo_symbol"], max_size: "medium");
-                        echo "</div>";
-                    }
-                    ?>
-                </div>
-
-            <?php
-            endif;
-            ?>
 
             <div class="faq__inner">
                 <?php
                 print_title($title, $title_tag, "faq__title");
-                if (isset($subtitle) && $subtitle) print_title($subtitle, $subtitle_tag, "faq__subtitle pretitle");
                 ?>
 
                 <?php if ($text_content): ?>
@@ -53,53 +38,42 @@ if (get_field('toggle_block')):
                     </div>
                 <?php endif ?>
 
+                <?php if (isset($faq_items) && !empty($faq_items)) : ?>
+                    <div class="faq__items">
 
-                <div class="faq__sections">
+                        <div class="faq__col" id="faq-col-1" aria-hidden="true"></div>
+                        <div class="faq__col" id="faq-col-2" aria-hidden="true"></div>
 
-                    <?php
-                    if (isset($faq_sections) && !empty($faq_sections)) :
-                        foreach ($faq_sections as $section) :
-                            foreach ($section as $element => $content) $$element = $content;
-                    ?>
+                        <?php
+                        $i = 1;
+                        foreach ($faq_items as $item) :
+                            foreach ($item as $key => $faq) $$key = $faq;
+                        ?>
 
-                            <div class="faq__section">
-                                <?php
-                                print_title($heading, $heading_tag, "faq__heading");
-                                ?>
-
-                                <?php
-                                if (isset($faq_items) && !empty($faq_items)) :
-                                    foreach ($faq_items as $item) :
-                                        foreach ($item as $key => $faq) $$key = $faq;
-                                ?>
-
-                                        <div class="faq__item accordion">
-                                            <div class="faq__question accordion__heading">
-                                                <?php print_title($question, $question_tag); ?>
-                                            </div>
-                                            <div class="faq__answer accordion__content">
-                                                <div class="formatted-text accordion__inner">
-                                                    <?= $answer ?>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                <?php
-                                    endforeach;
-                                endif;
-                                ?>
+                            <div class="faq__item accordion">
+                                <div class="faq__question accordion__heading">
+                                    <span><?= $i < 10 ? "0" . $i : "$i" ?></span>
+                                    <?php print_title($question, $question_tag) ?>
+                                </div>
+                                <div class="faq__answer accordion__content">
+                                    <div class="formatted-text accordion__inner">
+                                        <?= $answer ?>
+                                    </div>
+                                </div>
                             </div>
-                    <?php
-                        endforeach;
-                    endif;
-                    ?>
 
-                </div>
+                        <?php
+                            $i++;
+                        endforeach;
+                        ?>
+
+                    </div>
+                <?php endif ?>
 
 
                 <?php if ($cta_link): ?>
                     <div class="faq__btn">
-                        <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn btn--secondary" aria-label="<?= esc_attr($cta_link['title']) ?>">
+                        <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn--primary" aria-label="<?= esc_attr($cta_link['title']) ?>">
                             <span><?= $cta_link['title'] ?></span>
                         </a>
                     </div>

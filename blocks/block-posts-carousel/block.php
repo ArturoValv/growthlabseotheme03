@@ -47,7 +47,6 @@ if (get_field('toggle_block')):
         class="
         block 
         posts-carousel
-        <?php if ($carousel_type === "team") echo " bg-gradient"; ?>
         <?= isset($background_type) && $background_type ? $background_type : 'light' ?>
         <?= $carousel_type ?>
         "

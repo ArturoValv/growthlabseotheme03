@@ -277,7 +277,7 @@
         font-weight: inherit;
         line-height: inherit;
 
-        @media (max-width: v.$ldpi) {
+        @media (max-width: calc(v.$ldpi - 1px)) {
           font-size: clamp(4rem, 2vw, 6rem) !important;
         }
       }

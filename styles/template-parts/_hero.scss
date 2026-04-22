@@ -173,7 +173,7 @@
         line-height: inherit;
         color: currentColor;
 
-        @media (max-width: v.$ldpi) {
+        @media (max-width: calc(v.$ldpi - 1px)) {
           font-size: inherit !important;
         }
       }
