@@ -53,11 +53,11 @@ if (!$bg_mobile) $bg_mobile = [];
 
     <?php if (isset($trust_badge_text) && $trust_badge_text): ?>
         <div class="hero__badge">
-            <?php $url = get_template_directory_uri() . '..\assets\img\badge.webp'; ?>
+            <?php $url = get_template_directory_uri() . '\assets\img\badge.webp'; ?>
             <div class="content tx-center">
                 <?= $trust_badge_text ?>
             </div>
-            <img src="<?= $url ?>" alt="$hero badge">
+            <img src="<?= $url ?>" alt="hero badge">
         </div>
     <?php endif ?>
 </section>
