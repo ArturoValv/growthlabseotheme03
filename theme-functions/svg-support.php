@@ -97,7 +97,8 @@ function image_to_svg($image, $classes = "")
                 return '';
             }
 
-            $svg_content = "<div class='$classes'>$svg_content</div>";
+
+            if ($classes !== "") $svg_content = "<div class='$classes'>$svg_content</div>";
             return $svg_content;
         }
 
