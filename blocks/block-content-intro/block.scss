@@ -147,10 +147,8 @@
             opacity: 0.5;
           }
 
-          svg {
-            path {
-              fill: rgb(var(--secondary), 0.2);
-            }
+          path {
+            fill: rgb(var(--secondary), 0.2);
           }
         }
 
