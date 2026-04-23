@@ -77,7 +77,8 @@
       &::after {
         background-image: linear-gradient(
           to bottom,
-          transparent 80%,
+          transparent 40%,
+          rgba(var(--tertiary-dark), 0.6) 60%,
           rgba(var(--tertiary-dark))
         );
       }
