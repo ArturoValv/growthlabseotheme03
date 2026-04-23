@@ -501,7 +501,7 @@ img.bg-image {
 
   &--secondary {
     @extend .btn;
-    background: rgb(var(--secondary-light));
+    background: rgb(var(--secondary));
 
     &::before {
       content: none;
@@ -512,9 +512,9 @@ img.bg-image {
     }
 
     &:hover {
-      background: rgb(var(--tertiary-light));
+      background: rgb(var(--secondary-dark));
       span {
-        color: rgb(var(--secondary));
+        color: rgb(var(--tertiary-dark));
       }
     }
   }

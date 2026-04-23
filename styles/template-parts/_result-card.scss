@@ -11,13 +11,7 @@
     display: inline-block;
 
     #{$card}__wrapper {
-      @include m.nice-corner(
-        "top-left",
-        "top-right",
-        -1.5rem,
-        12%,
-        $bw-lg: 6px
-      );
+     
     }
   }
 
@@ -30,7 +24,6 @@
     background-color: rgb(var(--primary));
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.05);
     transition: 0.4s ease;
-    @include m.nice-corner("top-left", "top-right", -1rem, 15%, $bw-lg: 5px);
   }
 
   &__inner {

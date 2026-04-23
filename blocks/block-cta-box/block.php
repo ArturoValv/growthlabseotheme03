@@ -9,30 +9,26 @@ if (get_field('toggle_block')):
 
     <section
         id="<?= $block_id ?? "" ?>"
-        class="block cta-box <?= $box_style ?>"
+        class="block cta-box <?= $box_style ?> <?= isset($background_type) && $background_type ? $background_type : 'light' ?>"
         <?php if (isset($extract_block_from_content) && $extract_block_from_content) echo "data-extract='$place'"; ?>>
 
+        <?php
+        if (isset($background_image) && $background_image && isset($background_type) && $background_type === 'image') img_print_picture_tag(img: $background_image, is_cover: true, classes: "cta-box__bg bg-image");
+        ?>
 
         <div class="cta-box__wrapper container">
 
             <?php
-            if ($box_style === "full" && $side_image) img_print_picture_tag(img: $side_image, max_size: "large", min_size: "featured-small", classes: "cta-box__side-img");
+            $options = get_field_options("options");
+            if ($options["logo_symbol"]) {
+                img_print_picture_tag(img: $options["logo_symbol"], max_size: "medium", classes: "cta-box__symbol");
+            }
             ?>
 
             <div class="cta-box__inner">
 
-                <div class="cta-box__heading">
-                    <?php
-                    if ($box_style === "full" && isset($pretitle) && $pretitle) {
-                        print_title($pretitle, $pretitle_tag, "cta-box__pretitle pretitle tx-center");
-                    }
-                    if (isset($title) && $title) {
-                        print_title($title, $title_tag, "cta-box__title tx-center");
-                    }
-                    if (isset($subtitle) && $subtitle) {
-                        print_title($subtitle, $subtitle_tag, "cta-box__subtitle pretitle tx-center");
-                    }
-                    ?>
+                <div class="cta-box__title">
+                    <?= isset($title) && $title ? $title : ""; ?>
                 </div>
 
                 <div class="cta-box__main">
@@ -50,9 +46,9 @@ if (get_field('toggle_block')):
                             $i = 0;
                             foreach ($cta_buttons as $button):
                                 $cta_link = $button['link'];
-                                $btn_style = $i === 0 ? "tertiary" : "primary";
+                                $btn_style = $i === 0 ? "primary-dark" : "secondary";
                             ?>
-                                <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn btn--<?= $btn_style ?>" aria-label="<?= esc_attr($cta_link['title']) ?>">
+                                <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn--<?= $btn_style ?>" aria-label="<?= esc_attr($cta_link['title']) ?>">
                                     <span><?= $cta_link['title'] ?></span>
                                 </a>
                             <?php

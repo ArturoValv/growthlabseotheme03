@@ -9,7 +9,6 @@
 
   &__container {
     background-color: rgb(var(--primary));
-    @include m.nice-corner("top-left", "top-right", -1rem, 5rem, $bw-lg: 5px);
   }
 
   &__city {

@@ -32,12 +32,6 @@
     flex-direction: column;
     background-color: rgb(var(--primary));
     transition: 0.4s ease;
-    @include m.nice-corner(
-      "bottom-right",
-      $offset: -8px,
-      $bw-sm: 8px,
-      $bw-lg: 8px
-    );
 
     &::before {
       border-right: none;

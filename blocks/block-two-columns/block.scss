@@ -238,17 +238,13 @@
     height: 100%;
     overflow: visible;
     display: block;
-    @include m.nice-corner("bottom-right", null, -1rem);
 
     @media (min-width: v.$mdpi) {
-      @include m.nice-corner("bottom-right", null, -2.5rem);
     }
 
     &.reverse {
-      @include m.nice-corner("bottom-left", null, -1rem);
 
       @media (min-width: v.$mdpi) {
-        @include m.nice-corner("bottom-left", null, -2.5rem);
       }
     }
 
