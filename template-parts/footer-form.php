@@ -4,7 +4,6 @@
 
             <div class="contact-form-footer__col">
                 <?php
-                img_print_picture_tag($args['logo'], max_size: 'medium', classes: 'contact-form-footer__logo');
                 print_title($args['title'], $args['tag'], "contact-form-footer__title");
                 ?>
 

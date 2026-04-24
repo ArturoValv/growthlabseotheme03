@@ -21,16 +21,16 @@ main:has(+ .site-footer .contact-form-footer) {
     ),
     /* Esquina superior izquierda más oscura */
     radial-gradient(
-      ellipse 50% 50% at 0% 0%,
-      rgb(var(--tertiary)) 0%,
-      transparent 60%
-    ),
+        ellipse 50% 50% at 0% 0%,
+        rgb(var(--tertiary)) 0%,
+        transparent 60%
+      ),
     /* Esquina superior derecha más oscura */
     radial-gradient(
-      ellipse 50% 50% at 100% 0%,
-      rgb(var(--tertiary)) 0%,
-      transparent 60%
-    );
+        ellipse 50% 50% at 100% 0%,
+        rgb(var(--tertiary)) 0%,
+        transparent 60%
+      );
 
   //Footer Form Section
   .contact-form-footer {
@@ -49,6 +49,7 @@ main:has(+ .site-footer .contact-form-footer) {
       transform: translateY(calc(-1 * var(--sp-lg)));
       background-color: rgb(var(--primary));
       @include m.flex-center;
+      align-items: stretch;
       flex-wrap: wrap;
       row-gap: 1.5rem;
 
@@ -61,7 +62,6 @@ main:has(+ .site-footer .contact-form-footer) {
       min-width: 280px;
       flex: 1 0 50%;
       display: flex;
-      justify-content: center;
       flex-direction: column;
       gap: 1.5rem;
 
@@ -71,14 +71,7 @@ main:has(+ .site-footer .contact-form-footer) {
     }
 
     &__title {
-      @include m.title(
-        rgb(var(--secondary-light)),
-        4rem,
-        4vw,
-        8rem,
-        600,
-        1,
-      );
+      @include m.title(rgb(var(--secondary-light)), 4rem, 4vw, 8rem, 600, 1);
       text-transform: uppercase;
     }
 

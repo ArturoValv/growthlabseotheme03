@@ -23,7 +23,6 @@
     if (!$form_section['hide_section'] && !get_field('hide_form_section')) {
       foreach ($form_section as $form_field => $form_content) $$form_field = $form_content;
       $args = [
-        'logo' => $logo ?? null,
         'title' => isset($contact_form_title) && $contact_form_title ? $contact_form_title : "",
         'tag' => isset($contact_form_title_tag) && $contact_form_title_tag ? $contact_form_title_tag : "p",
         'link' => isset($contact_form_link) && $contact_form_link ? $contact_form_link : "",
