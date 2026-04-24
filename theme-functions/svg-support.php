@@ -97,9 +97,8 @@ function image_to_svg($image, $classes = '')
                 return '';
             }
 
-
-            if ($classes !== '') echo "<div class='$classes'>$svg_content</div>";
-            return $svg_content;
+            $svg_content = "<div class='$classes'>$svg_content</div>";
+            echo $svg_content;
         }
 
         // Build img tag with escaped attributes
