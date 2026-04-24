@@ -996,7 +996,7 @@ if (!function_exists('img_generate_cover_picture')) {
         $mobile_fields = $has_mobile ? img_get_fields($mobile_img) : null;
 
         // ── Available cover sizes per image ───────────────────────────────
-        $cover_sizes = ['full', 'cover-desktop', 'cover-tablet', 'cover-mobile'];
+        $cover_sizes = ['full', 'cover-desktop', 'cover-tablet-portrait', 'cover-mobile-portrait'];
 
         $img_available    = img_get_available_sizes($img_fields['meta'],    $img_fields['id']);
         $img_available = array_diff_key(
@@ -1054,9 +1054,9 @@ if (!function_exists('img_generate_cover_picture')) {
             $ranges        = po_get_breakpoint_ranges();
             foreach (array_reverse(array_keys($ranges)) as $bp) {
                 if ($bp === 'mobile') continue;
-                $reg_w = po_get_registered_width('cover-tablet');
+                $reg_w = po_get_registered_width('cover-tablet-portrait');
                 // tablet_img covers this bp if it has cover-tablet or its full >= bp min.
-                if (isset($tablet_available['cover-tablet']) || $tablet_full_w >= $ranges[$bp]) {
+                if (isset($tablet_available['cover-tablet-portrait']) || $tablet_full_w >= $ranges[$bp]) {
                     $tablet_coverage_bp = $bp;
                     break;
                 }
@@ -1175,7 +1175,7 @@ if (!function_exists('img_generate_cover_picture')) {
             : ($tablet_fields ? $tablet_available : $img_available);
 
         $mobile_size = null;
-        foreach (['cover-mobile', 'cover-tablet', 'full'] as $s) {
+        foreach (['cover-mobile-portrait', 'cover-tablet-portrait', 'full'] as $s) {
             if (isset($mobile_available_map[$s])) {
                 $mobile_size = $s;
                 break;

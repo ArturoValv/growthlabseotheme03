@@ -99,8 +99,12 @@ if (!function_exists('growthlabseotheme03_setup')) {
         //Add custom sized images
         // Covers
         add_image_size('cover-desktop', 1920, 1080, false);
-        add_image_size('cover-tablet', 1280, 600, false);
+        add_image_size('cover-tablet', 1280, 960, false);
         add_image_size('cover-mobile', 768, 432, false);
+
+        // Covers portrait
+        add_image_size('cover-tablet-portrait', 960, 1280, false);
+        add_image_size('cover-mobile-portrait', 768, 1100, false);
 
         // Content
         add_image_size('content', 800, 600, false);

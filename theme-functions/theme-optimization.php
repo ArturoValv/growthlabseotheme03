@@ -131,6 +131,7 @@ add_action('wp_head', function () {
         'fonts/khand-v22-latin/khand-v22-latin-regular.woff2',
         'fonts/khand-v22-latin/khand-v22-latin-500.woff2',
         'fonts/khand-v22-latin/khand-v22-latin-600.woff2',
+        'fonts/khand-v22-latin/khand-v22-latin-700.woff2'
     );
 
     foreach ($fonts as $font) {
