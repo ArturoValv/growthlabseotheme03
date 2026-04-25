@@ -6,13 +6,7 @@
   position: relative;
   overflow-y: visible;
   @include m.flex-center;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(var(--tertiary-dark)) 10%,
-    rgba(var(--primary-dark)) 25%,
-    rgba(var(--secondary-dark)),
-    rgba(var(--secondary))
-  );
+  background-color: rgb(var(--secondary));
 
   $parent: &;
 
@@ -83,7 +77,7 @@
         );
       }
 
-      img{
+      img {
         object-position: top center;
       }
     }

@@ -158,8 +158,8 @@
         },
         {
             "key": "field_69d4a0c8d09bc",
-            "label": "Background Style",
-            "name": "background_style",
+            "label": "Background Type",
+            "name": "background_type",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -173,7 +173,7 @@
             "choices": {
                 "light": "Light",
                 "dark": "Dark",
-                "bg-gradient": "Gradient"
+                "image": "Image"
             },
             "default_value": "light",
             "return_format": "value",
@@ -185,6 +185,40 @@
             "placeholder": "",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_69ec4bfd418a7",
+            "label": "Background Image",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69d4a0c8d09bc",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         },
         {
             "key": "field_69d4a09f74fdf",
@@ -357,5 +391,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775717069
+    "modified": 1777093870
 }

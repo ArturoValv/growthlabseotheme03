@@ -9,8 +9,12 @@ if (get_field('toggle_block')):
 
     <section
         id="<?= $block_id ?? "" ?>"
-        class="block contact-form <?= isset($background_style) && $background_style ? $background_style : 'light' ?>"
+        class="block contact-form <?= isset($background_type) && $background_type ? $background_type : 'light' ?>"
         <?php if (isset($extract_block_from_content) && $extract_block_from_content) echo "data-extract='$place'"; ?>>
+
+        <?php
+        if (isset($background_image) && $background_image && isset($background_type) && $background_type === 'image') img_print_picture_tag(img: $background_image, is_cover: true, classes: "contact-form__bg bg-image");
+        ?>
 
         <div class="contact-form__layer">
 

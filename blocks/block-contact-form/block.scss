@@ -10,6 +10,7 @@ main:has(+ .contact-form--side-pic) {
 aside {
   .contact-form__wrapper {
     margin-top: 0;
+    padding: var(--sp-xsm);
   }
 
   .contact-form__side-image {
@@ -25,16 +26,51 @@ aside {
 .contact-form {
   position: relative;
   z-index: 5;
+  background-color: rgb(var(--secondary));
 
   $parent: &;
 
   &.dark {
-    background-color: rgb(var(--primary));
+    background-color: rgba(var(--primary));
   }
 
-  &:not(.light) {
-    * {
-      color: rgb(var(--secondary));
+  &.image {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(var(--primary-dark)) 10%,
+      rgba(var(--primary-dark)) 25%,
+      rgba(var(--tertiary)),
+      rgba(var(--tertiary-dark))
+    );
+
+    #{$parent}__bg {
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        display: block;
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(var(--primary-dark)) 10%,
+          rgba(var(--primary-dark)) 25%,
+          rgba(var(--tertiary)),
+          rgba(var(--tertiary-dark))
+        );
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &.dark,
+  &.image {
+    #{$parent}__title,
+    #{$parent}__content > *:not(a),
+    form label {
+      color: rgb(var(--secondary-light));
     }
   }
 
@@ -69,7 +105,7 @@ aside {
     min-width: 300px;
     height: auto;
     display: flex;
-    flex: 1 0 calc(45%);
+    flex: 1 0 calc(40%);
 
     img {
       width: 100%;
@@ -90,7 +126,7 @@ aside {
     margin-bottom: var(--sp-md);
     position: relative;
     z-index: 5;
-    flex: 1 0 calc(55%);
+    flex: 1 0 calc(60%);
     display: flex;
     flex-direction: column;
     align-items: stretch;
