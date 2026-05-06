@@ -11,7 +11,7 @@
     #{$card}__title {
       color: rgb(var(--primary));
     }
-    
+
     #{$card}__content {
       color: rgb(var(--secondary-light));
     }
@@ -116,5 +116,9 @@
 
   &__btn {
     width: fit-content;
+
+    span {
+      text-transform: uppercase;
+    }
   }
 }
