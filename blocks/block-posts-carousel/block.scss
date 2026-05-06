@@ -241,10 +241,11 @@
   &__content {
     @include m.flex-center;
     flex-direction: column;
-    gap: var(--sp-xsm);
+    gap: var(--sp-sm);
   }
 
   &__title {
+    margin-bottom: 0;
     @include m.title(rgba(var(--tertiary)), 3rem, 4.5vw, 10rem, 600, 1);
   }
 
