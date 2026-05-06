@@ -195,7 +195,7 @@ if (get_field('toggle_block')):
                                             <img data-src="<?= $bg_item_url ?>" alt="" class="thumbnail__bg lazy-image">
                                             <?php
                                             if (isset($headshot) && $headshot) {
-                                                img_print_picture_tag(img: $headshot, max_size: "medium", classes: "thumbnail__pic");
+                                                img_print_picture_tag(img: $headshot, max_size: "medium", min_size: "medium", classes: "thumbnail__pic");
                                             } else {
                                                 include get_stylesheet_directory() . '/assets/icons/icon-file-image.svg';
                                             }
