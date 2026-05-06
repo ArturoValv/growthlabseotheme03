@@ -34,62 +34,6 @@
       display: none;
     }
 
-    @media (min-width: v.$mdpi) {
-      #{$parent}__wrapper {
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      #{$parent}__content {
-        width: 30%;
-        position: absolute;
-        top: 10%;
-        left: 0;
-        z-index: 2;
-        align-items: flex-start;
-
-        * {
-          text-align: left;
-        }
-      }
-
-      #{$parent}__link {
-        display: inline-block;
-      }
-
-      #{$parent}__carousel {
-        width: 70%;
-        padding-top: 0;
-        flex: 0 0 70%;
-      }
-
-      #{$parent}__symbol {
-        width: 60rem;
-        aspect-ratio: 1/1;
-        position: absolute;
-        top: var(--sp-lg);
-        left: 25rem;
-        display: block;
-
-        svg {
-          path {
-            fill: rgb(var(--secondary));
-          }
-        }
-
-        img {
-          filter: brightness(0) invert(1);
-        }
-
-        svg,
-        img {
-          opacity: 0.1;
-        }
-      }
-    }
-
     @media (min-width: v.$ldpi) {
       #{$parent}__card {
         opacity: 0;
@@ -102,7 +46,7 @@
 
       #thumbnail-carousel {
         width: 100%;
-        margin-top: calc(-1 * (28rem - ((var(--container) / var(--size)))));
+        margin-top: -8rem;
         display: block;
 
         .splide__track {
@@ -118,17 +62,16 @@
 
         .thumbnail {
           width: calc((var(--container) / var(--size)) - 1.5rem);
-          aspect-ratio: 1/1;
           position: relative;
           display: flex;
           align-items: flex-end;
           justify-content: center;
 
           &.is-active {
-            transform: scale(1.2);
             padding-inline: 1rem;
 
             .thumbnail__wrapper {
+              transform: scale(1.2);
               padding-bottom: 5px;
               &::after {
                 opacity: 1;
@@ -142,6 +85,12 @@
           }
 
           &__wrapper {
+            max-height: 233px;
+            max-width: 233px;
+            position: relative;
+            display: flex;
+            aspect-ratio: 1/1;
+
             &::after {
               content: "";
               width: calc(100% - 2rem);
@@ -203,6 +152,62 @@
 
       #{$parent}__arrows {
         display: none;
+      }
+    }
+
+    @media (min-width: v.$mdpi) {
+      #{$parent}__wrapper {
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      #{$parent}__content {
+        width: 30%;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        z-index: 2;
+        align-items: flex-start;
+
+        * {
+          text-align: left;
+        }
+      }
+
+      #{$parent}__link {
+        display: inline-block;
+      }
+
+      #{$parent}__carousel {
+        width: 70%;
+        padding-top: 0;
+        flex: 0 0 70%;
+      }
+
+      #{$parent}__symbol {
+        width: 60rem;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: var(--sp-lg);
+        left: 25rem;
+        display: block;
+
+        svg {
+          path {
+            fill: rgb(var(--secondary));
+          }
+        }
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+
+        svg,
+        img {
+          opacity: 0.1;
+        }
       }
     }
   }
