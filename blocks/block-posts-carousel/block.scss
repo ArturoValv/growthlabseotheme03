@@ -236,12 +236,14 @@
   &__wrapper {
     @include m.flex-center;
     flex-direction: column;
+    row-gap: var(--sp-xsm);
   }
 
   &__content {
+    max-width: 96rem;
     @include m.flex-center;
     flex-direction: column;
-    gap: var(--sp-sm);
+    gap: var(--sp-xsm);
   }
 
   &__title {
@@ -256,15 +258,6 @@
     line-height: 1.5;
     text-transform: uppercase;
     color: rgb(var(--primary-dark));
-  }
-
-  &__separator {
-    max-width: 70%;
-    margin-bottom: var(--sp-xsm);
-  }
-
-  &__content {
-    max-width: 96rem;
   }
 
   &__carousel {
