@@ -364,7 +364,8 @@ img.bg-image {
       content: "\25AA";
       margin-block: auto;
       margin-right: 8px;
-      color: rgb(var(--tertiary));
+      font-size: inherit;
+      color: inherit;
     }
   }
 }
