@@ -99,6 +99,16 @@
         grid-row: 1/2;
       }
 
+      &.right {
+        @media (min-width: v.$ldpi) {
+          grid-column: 2/3;
+
+          & + .col {
+            grid-column: 1/2;
+          }
+        }
+      }
+
       &.bottom {
         width: 100%;
         max-height: 35rem;

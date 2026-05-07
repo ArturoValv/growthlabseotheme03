@@ -57,11 +57,17 @@ if (get_field('toggle_block')):
             <?php foreach (get_field("cta_box") as $box => $data) $$box = $data; ?>
             <div class="inner-cta-box">
 
-                <?php if ($content && isset($content)): ?>
-                    <div class="inner-cta-box__content formatted-text">
-                        <?= $content ?>
-                    </div>
-                <?php endif ?>
+                <?php
+                if (isset($featured_image_position) && $featured_image_position !== "bottom") :
+                    if ($content && isset($content)):
+                ?>
+                        <div class="inner-cta-box__content formatted-text">
+                            <?= $content ?>
+                        </div>
+                <?php
+                    endif;
+                endif;
+                ?>
 
                 <div class="inner-cta-box__buttons">
                     <?php if ($cta_link && isset($cta_link) && $cta_link["url"]): ?>
