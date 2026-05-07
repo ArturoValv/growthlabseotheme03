@@ -31,6 +31,7 @@
     #{$parent}__title,
     #{$parent}__content > *:not(a),
     #{$parent}__question > *,
+    #{$parent}__question::after,
     #{$parent}__answer *:not(a) {
       color: rgb(var(--secondary));
     }
@@ -50,7 +51,7 @@
     max-height: 65rem;
     aspect-ratio: 1/1;
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 0;
     z-index: 0;
     transform: translateY(-50%);
