@@ -286,6 +286,7 @@
       }
 
       * {
+        margin-bottom: 0;
         color: currentColor;
         font-weight: inherit;
         line-height: inherit;
@@ -313,7 +314,7 @@
   }
 
   .inner-cta-box {
-    padding: var(--sp-sm);
+    padding: var(--sp-xsm);
     position: relative;
     grid-column: 1/3;
     grid-row: 2/3;
