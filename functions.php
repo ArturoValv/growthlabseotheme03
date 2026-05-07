@@ -608,10 +608,10 @@ function import_theme_images_to_folder()
 }
 
 // Run once by visiting: yoursite.com/?import_theme_images=1
-/* if (isset($_GET['import_theme_images']) && current_user_can('manage_options')) {
+if (isset($_GET['import_theme_images']) && current_user_can('manage_options')) {
     import_theme_images_to_folder();
     wp_die('Images imported to /uploads/theme-icons/!');
-} */
+}
 
 // Forzar que las secciones de widgets permanezcan disponibles
 add_action('customize_register', function ($wp_customize) {
