@@ -141,7 +141,7 @@
         position: absolute;
         top: var(--sp-md);
         left: 0;
-        z-index: 2;
+        z-index: -1;
         display: flex;
         justify-content: space-between;
         align-items: stretch;
@@ -152,6 +152,10 @@
           top: 10rem;
           left: 50%;
           transform: translateX(-50%);
+        }
+
+        button{
+          z-index: 2;
         }
       }
 
