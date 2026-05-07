@@ -73,8 +73,8 @@
         background-image: linear-gradient(
           to bottom,
           transparent 40%,
-          rgba(var(--tertiary), 0.6) 60%,
-          rgba(var(--tertiary))
+          rgba(var(--tertiary), 0.6) 85%,
+          rgba(var(--tertiary), .8)
         );
       }
 
@@ -89,7 +89,7 @@
     }
 
     #{$parent}__wrapper {
-      height: 100%;
+      height: auto;
       padding-top: var(--sp-md);
       background-image: linear-gradient(
         to top,
@@ -98,6 +98,7 @@
       );
       border-radius: 0;
       box-shadow: 0 24px 30px rgba(0, 0, 0, 0.1);
+      align-self: stretch;
 
       @media (min-width: v.$ldpi) {
         padding-top: var(--sp-lg);
