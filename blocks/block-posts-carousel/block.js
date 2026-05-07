@@ -106,10 +106,7 @@ if (!window.loadSplide) {
           .trim();
 
         let thumbnails = new Splide(thumbnailsCarousel, {
-          fixedWidth:
-            document.querySelector(".posts-carousel__wrapper").clientWidth /
-              parseFloat(postsSize) -
-            15,
+          fixedWidth: 240,
           rewind: true,
           arrows: true,
           pagination: false,
@@ -117,11 +114,6 @@ if (!window.loadSplide) {
           updateOnMove: true,
           speed: 400,
           mediaQuery: "min",
-          breakpoints: {
-            [mdpi]: {
-              fixedWidth: parseFloat(container) / parseFloat(postsSize) - 15,
-            },
-          },
         });
         main.sync(thumbnails);
         main.mount();
