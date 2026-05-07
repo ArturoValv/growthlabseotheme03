@@ -378,33 +378,77 @@ $acf_sync = function () use ($_theme_dir) {
         add_filter('acf/settings/save_json', '__return_false', 99);
 
         // ─── CPTs ─────────────────────────────────────────────────────────────
+        $cpt_rows = $wpdb->get_results(
+            "SELECT MIN(ID) as ID, post_name FROM {$wpdb->posts}
+             WHERE post_type = 'acf-post-type'
+             AND post_status IN ('publish', 'acf-disabled', 'trash', 'draft')
+             GROUP BY post_name"
+        );
+        $existing_cpt_ids  = [];
+        foreach ($cpt_rows as $r) {
+            $existing_cpt_ids[$r->post_name] = (int) $r->ID;
+        }
+
+        $processed_cpt_keys = [];
+
         foreach (glob($parent_json_path . '/post_type_*.json') ?: [] as $file) {
             if ((microtime(true) - $execution_start) > $max_execution_time) break;
             if (!is_readable($file)) {
                 $warnings++;
                 continue;
             }
+
             $json_data = json_decode(file_get_contents($file), true);
             if (empty($json_data) || !is_array($json_data)) {
                 $warnings++;
                 continue;
             }
+
+            $cpt_key = $json_data['key'] ?? null;
+            if (!$cpt_key || in_array($cpt_key, $processed_cpt_keys, true)) continue;
+            $processed_cpt_keys[] = $cpt_key;
+
+            $existing_id = $existing_cpt_ids[$cpt_key] ?? 0;
+            if ($existing_id) $json_data['ID'] = $existing_id;
+
             acf_update_post_type($json_data);
             $synced++;
         }
 
         // ─── Taxonomías ───────────────────────────────────────────────────────
+        $tax_rows = $wpdb->get_results(
+            "SELECT MIN(ID) as ID, post_name FROM {$wpdb->posts}
+             WHERE post_type = 'acf-taxonomy'
+             AND post_status IN ('publish', 'acf-disabled', 'trash', 'draft')
+             GROUP BY post_name"
+        );
+        $existing_tax_ids  = [];
+        foreach ($tax_rows as $r) {
+            $existing_tax_ids[$r->post_name] = (int) $r->ID;
+        }
+
+        $processed_tax_keys = [];
+
         foreach (glob($parent_json_path . '/taxonomy_*.json') ?: [] as $file) {
             if ((microtime(true) - $execution_start) > $max_execution_time) break;
             if (!is_readable($file)) {
                 $warnings++;
                 continue;
             }
+
             $json_data = json_decode(file_get_contents($file), true);
             if (empty($json_data) || !is_array($json_data)) {
                 $warnings++;
                 continue;
             }
+
+            $tax_key = $json_data['key'] ?? null;
+            if (!$tax_key || in_array($tax_key, $processed_tax_keys, true)) continue;
+            $processed_tax_keys[] = $tax_key;
+
+            $existing_id = $existing_tax_ids[$tax_key] ?? 0;
+            if ($existing_id) $json_data['ID'] = $existing_id;
+
             acf_update_taxonomy($json_data);
             $synced++;
         }
