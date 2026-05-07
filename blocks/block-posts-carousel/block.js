@@ -106,7 +106,7 @@ if (!window.loadSplide) {
           .trim();
 
         let thumbnails = new Splide(thumbnailsCarousel, {
-          fixedWidth: 230,
+          fixedWidth: 228,
           rewind: true,
           arrows: true,
           pagination: false,
