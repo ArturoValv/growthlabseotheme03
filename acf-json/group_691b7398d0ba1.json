@@ -45,56 +45,6 @@
             "append": ""
         },
         {
-            "key": "field_691b7398d5aa7",
-            "label": "Testimonial Source",
-            "name": "testimonial_source",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "fb": "Facebook",
-                "inst": "Instagram",
-                "gg": "Google",
-                "lin": "LinkedIn",
-                "x": "Twitter\/X"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 1,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
-        },
-        {
-            "key": "field_691b749592be6",
-            "label": "Testimonial Source Link",
-            "name": "testimonial_source_link",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "placeholder": ""
-        },
-        {
             "key": "field_691b7398dd599",
             "label": "Testimonial Content",
             "name": "testimonial_content",
@@ -137,5 +87,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776838546
+    "modified": 1778179839
 }

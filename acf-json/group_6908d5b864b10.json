@@ -727,6 +727,11 @@
                                         "field": "field_69facabfe8ec9",
                                         "operator": "==",
                                         "value": "1"
+                                    },
+                                    {
+                                        "field": "field_6908d895c0fe4",
+                                        "operator": "==",
+                                        "value": "home"
                                     }
                                 ]
                             ],
@@ -962,5 +967,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778043715
+    "modified": 1778179808
 }
