@@ -217,13 +217,10 @@
       align-items: stretch;
 
       @media (min-width: v.$ldpi) {
-        width: 95%;
-        height: 32rem;
+        width: 100%;
+        max-height: 85%;
+        min-height: 32rem;
         align-self: stretch;
-      }
-
-      @media (min-width: v.$mdpi) {
-        height: 85%;
       }
 
       img {
