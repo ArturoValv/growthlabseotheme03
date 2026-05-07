@@ -9,7 +9,7 @@
                 <div class="footer-locations__location">
                     <div class="office">
                         <?php
-                        include get_stylesheet_directory() . '/assets/icons/icon-location-2.svg';
+                        include get_template_directory() . '/assets/icons/icon-location-2.svg';
                         ?>
 
                         <?php if (isset($city) && $city): ?>
