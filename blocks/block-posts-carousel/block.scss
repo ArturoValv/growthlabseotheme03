@@ -45,12 +45,14 @@
       }
 
       #thumbnail-carousel {
-        width: 80%;
+        width: 100%;
         margin-top: -5rem;
         display: block;
 
         .splide__track {
+          width: 80%;
           height: 28rem;
+          margin-inline: auto;
           padding-left: 3rem !important;
           padding-right: 3rem !important;
         }
@@ -139,7 +141,7 @@
         position: absolute;
         top: var(--sp-md);
         left: 0;
-        z-index: -1;
+        z-index: 2;
         display: flex;
         justify-content: space-between;
         align-items: stretch;
