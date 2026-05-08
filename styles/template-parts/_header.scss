@@ -55,7 +55,7 @@
       margin: 0 auto;
       grid-template-columns: repeat(4, 3fr);
       row-gap: 0.2rem;
-      column-gap: var(--sp-lg);
+      column-gap: var(--sp-md);
       place-items: center;
       position: relative;
     }
@@ -314,13 +314,14 @@
   }
 
   .site-logo {
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
     height: 100%;
     position: relative;
     @include m.flex-center;
     cursor: pointer;
 
+    div,
     picture {
       width: 100%;
       height: 100%;
@@ -331,6 +332,7 @@
       transition: 0.3s ease-in;
     }
 
+    svg,
     img {
       width: 100%;
       height: 100%;
