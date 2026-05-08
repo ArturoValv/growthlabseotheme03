@@ -76,11 +76,12 @@
   }
 
   &__card {
+    break-inside: avoid;
+
     &.case-result {
       min-width: 28rem;
       max-width: 58rem;
       height: fit-content;
-      break-inside: avoid;
     }
 
     &.post,
