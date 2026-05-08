@@ -62,7 +62,7 @@ if (!window.loadSplide) {
             perPage: inSidebar ? 3 : 4,
             pagination: false,
           },
-          [mdpi]: {
+          [hdpi]: {
             perPage: inSidebar ? 3 : 6,
             pagination: false,
           },
