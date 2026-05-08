@@ -48,7 +48,7 @@ if (!defined('ABSPATH')) {
                     if (function_exists('the_custom_logo') && has_custom_logo()) {
                         $custom_logo_id = get_theme_mod('custom_logo');
                         $image = wp_get_attachment_image_url($custom_logo_id, 'full');
-                        var_dump($image);
+                        var_dump($custom_logo_id);
                         echo img_generate_picture_tag(img: $image, max_size: "medium", alt_text: get_bloginfo('name'), is_priority: true);
                     }
                     ?>
