@@ -420,6 +420,27 @@
             "ui": 1
         },
         {
+            "key": "field_69fd01f463970",
+            "label": "Show All",
+            "name": "show_all",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_691e51741c8e5",
             "label": "Select Posts",
             "name": "select_posts",
@@ -623,5 +644,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1775717070
+    "modified": 1778200424
 }
