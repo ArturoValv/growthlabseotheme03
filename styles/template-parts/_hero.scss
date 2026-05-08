@@ -34,7 +34,7 @@
     gap: var(--sp-xsm);
 
     @media (min-width: v.$ldpi) {
-      max-width: 70%;
+      max-width: 80%;
       flex: 1 0 calc(55% - (var(--sp-xsm) / 2));
     }
 
