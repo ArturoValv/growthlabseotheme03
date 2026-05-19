@@ -41,8 +41,13 @@
     }
 
     svg {
-      width: 78px;
+      width: 45px;
       height: 45px;
+
+      @media (min-width: v.$tablet) {
+        width: 78px;
+      }
+
       path {
         fill: rgb(var(--tertiary-dark));
         transition: 0.2s ease;

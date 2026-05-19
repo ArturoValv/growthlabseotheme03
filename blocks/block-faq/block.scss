@@ -47,6 +47,7 @@
   }
 
   &__symbol {
+    max-width: 100%;
     height: 90%;
     max-height: 65rem;
     aspect-ratio: 1/1;
@@ -60,7 +61,7 @@
       height: 100%;
       path {
         fill: rgb(var(--secondary));
-        opacity: 0.4;
+        opacity: 0.6;
       }
     }
 
@@ -70,7 +71,7 @@
       display: block;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.4;
+      opacity: 0.6;
     }
   }
 
