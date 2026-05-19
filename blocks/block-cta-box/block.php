@@ -46,7 +46,7 @@ if (get_field('toggle_block')):
                             $i = 0;
                             foreach ($cta_buttons as $button):
                                 $cta_link = $button['link'];
-                                $btn_style = $i === 0 ? "tertiary" : "secondary";
+                                $btn_style = $i === 0 ? "tertiary" : "tertiary-light";
                             ?>
                                 <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn--<?= $btn_style ?>" aria-label="<?= esc_attr($cta_link['title']) ?>">
                                     <span><?= $cta_link['title'] ?></span>
