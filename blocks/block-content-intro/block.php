@@ -71,7 +71,7 @@ if (get_field('toggle_block')):
 
                 <div class="inner-cta-box__buttons">
                     <?php if ($cta_link && isset($cta_link) && $cta_link["url"]): ?>
-                        <a href="<?= $cta_link["url"] ?>" target="<?= $cta_link["target"] ?>" class="btn btn--primary-dark" aria-label="<?= esc_attr($cta_link["title"]) ?>">
+                        <a href="<?= $cta_link["url"] ?>" target="<?= $cta_link["target"] ?>" class="btn<?= $background_type && isset($background_type) && $background_type !== 'light' ? '--tertiary' : '--tertiary' ?>" aria-label="<?= esc_attr($cta_link["title"]) ?>">
                             <span><?= $cta_link["title"] ?></span>
                         </a>
                     <?php endif ?>

@@ -17,9 +17,24 @@ Color scheme is defined in theme-functions/color-scheme.php by dynamic selection
 */
 
 :root {
-  //Fonts
-  /* --font-secondary: "Khand", sans-serif;
-  --font-primary: "Figtree", sans-serif; */
+  /* //Fonts
+  --font-secondary: "Khand", sans-serif;
+  --font-primary: "Figtree", sans-serif;
+
+  //Colors
+  --primary: 21, 37, 63;
+  --primary-dark: 8, 24, 47;
+  --primary-light: 44, 61, 91;
+
+  --secondary: 244, 243, 238;
+  --secondary-dark: 231, 229, 223;
+  --secondary-light: 255, 255, 255;
+
+  --tertiary: 188, 144, 97;
+  --tertiary-dark: 157, 122, 85;
+  --tertiary-light: 220, 171, 119;
+
+  --text: 21, 37, 63; */
 
   //Spacing
   --container: 1240px;

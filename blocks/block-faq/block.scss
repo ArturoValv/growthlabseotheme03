@@ -26,7 +26,7 @@
 
   &.dark,
   &.image {
-    background-color: rgba(var(--tertiary));
+    background-color: rgba(var(--primary-dark));
 
     #{$parent}__title,
     #{$parent}__content > *:not(a),
@@ -59,8 +59,8 @@
       width: 100%;
       height: 100%;
       path {
-        fill: rgb(var(--secondary-light));
-        opacity: 0.5;
+        fill: rgb(var(--secondary));
+        opacity: 0.4;
       }
     }
 
@@ -70,7 +70,7 @@
       display: block;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.7;
+      opacity: 0.4;
     }
   }
 
@@ -115,7 +115,7 @@
 
   &__title {
     width: 100%;
-    @include m.title(rgba(var(--tertiary)), 4rem, 5vw, 10rem, 600, 0.9);
+    @include m.title(rgba(var(--primary-dark)), 4rem, 5vw, 10rem, 600, 0.9);
 
     * {
       color: inherit;
@@ -166,20 +166,20 @@
       height: fit-content;
       width: fit-content;
       margin-left: auto;
-      color: rgba(var(--tertiary-light));
+      color: rgba(var(--tertiary));
       font-size: 3rem;
       font-weight: 700;
       line-height: 0.5;
     }
 
     & > *:not(span) {
-      @include m.title(rgba(var(--tertiary)), 1.8rem, 2vw, 3.4rem, 600, 1);
+      @include m.title(rgba(var(--primary-dark)), 1.8rem, 2vw, 3.4rem, 600, 1);
       text-transform: uppercase;
     }
 
     span {
       margin-right: 3.5rem;
-      color: rgba(var(--tertiary-light));
+      color: rgba(var(--tertiary));
       font-family: var(--font-secondary);
       font-weight: 600;
       font-size: clamp(3rem, 3.2vw, 6rem);
@@ -189,7 +189,7 @@
 
   &__answer {
     padding-top: 0;
-    border-bottom: 1px solid rgba(var(--tertiary-light), 0.6);
+    border-bottom: 1px solid rgba(var(--tertiary), 0.6);
 
     .formatted-text {
       & > *:not(a) {

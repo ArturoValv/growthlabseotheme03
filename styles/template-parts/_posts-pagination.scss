@@ -44,7 +44,7 @@
       width: 78px;
       height: 45px;
       path {
-        fill: rgb(var(--tertiary));
+        fill: rgb(var(--tertiary-dark));
         transition: 0.2s ease;
       }
 
@@ -52,7 +52,7 @@
         cursor: pointer;
 
         path {
-          fill: rgb(var(--primary));
+          fill: rgb(var(--tertiary));
         }
       }
     }
@@ -107,16 +107,16 @@
 
       a {
         padding: 0;
-        color: rgb(var(--primary-dark));
+        color: rgb(var(--tertiary-dark));
 
         svg path {
-          fill: rgb(var(--primary-dark));
+          fill: rgb(var(--tertiary-dark));
         }
       }
 
       &:hover {
         path {
-          fill: rgb(var(--primary));
+          fill: rgb(var(--tertiary));
         }
       }
     }
@@ -133,7 +133,7 @@
       width: 1.2rem;
       height: 1.2rem;
       @include m.flex-center;
-      border: 1.5px solid rgb(var(--primary));
+      border: 1.5px solid rgb(var(--tertiary));
       border-radius: 50%;
 
       &:has(.is-active) {
@@ -144,11 +144,11 @@
         width: 0.6rem;
         height: 0.6rem;
         display: block;
-        background-color: rgb(var(--primary));
+        background-color: rgb(var(--tertiary));
         border-radius: 50%;
 
         &.is-active {
-          background-color: rgb(var(--tertiary));
+          background-color: rgb(var(--tertiary-dark));
         }
       }
     }

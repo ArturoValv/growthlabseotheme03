@@ -3,6 +3,7 @@
 
 .locations {
   padding: var(--sp-sm) 0;
+  background-color: rgb(var(--secondary));
 
   @media (min-width: v.$ldpi) {
     padding: var(--sp-lg) 0 var(--sp-md);

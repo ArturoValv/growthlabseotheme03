@@ -2,21 +2,21 @@
 // Definir colores por defecto
 $default_colors = [
     'primary' => [
-        'default' => '#15253f',
-        'dark'    => '#08182f',
-        'light'   => '#2C3D5B'
+        'default' => '#0263ca',
+        'dark'    => '#003d7e',
+        'light'   => '#0070e8'
     ],
     'secondary' => [
-        'default' => '#F4F3EE',
-        'dark'    => '#E7E5DF',
+        'default' => '#f4f8fd',
+        'dark'    => '#b0d3f9',
         'light'   => '#FFFFFF'
     ],
     'tertiary' => [
-        'default' => '#BC9061',
-        'dark'    => '#9D7A55',
-        'light'   => '#DCAB77'
+        'default' => '#0b3293',
+        'dark'    => '#071d3a',
+        'light'   => '#869db7'
     ],
-    'text' => '#15253f'
+    'text' => '#232323'
 ];
 
 if (!function_exists('theme_customize_register')) {

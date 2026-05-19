@@ -18,7 +18,7 @@
     padding: var(--sp-sm);
     @include m.flex-center;
     background-color: rgb(var(--secondary-light));
-    border-left: 5px solid rgb(var(--primary-light));
+    border-left: 5px solid rgb(var(--tertiary));
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: all 0.25s ease;
 
@@ -52,11 +52,11 @@
     font-size: 5.5rem;
     font-weight: 600;
     line-height: 1;
-    color: rgb(var(--tertiary));
+    color: rgb(var(--tertiary-dark));
   }
 
   &__description {
-    color: rgb(var(--tertiary));
+    color: rgb(var(--primary-dark));
     font-size: 1.6rem;
     line-height: 1.8;
   }

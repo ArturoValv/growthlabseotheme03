@@ -18,7 +18,7 @@
         background-color: rgb(var(--secondary));
       }
     }
-
+ 
     #{$card}__content {
       color: rgb(var(--secondary-light));
     }
@@ -71,7 +71,7 @@
       }
 
       path {
-        fill: rgb(var(--primary-dark));
+        fill: rgb(var(--tertiary-dark));
       }
     }
 
@@ -112,7 +112,7 @@
       display: inline-block;
 
       path {
-        fill: rgb(var(--primary));
+        fill: rgb(var(--tertiary));
       }
     }
   }
@@ -121,7 +121,7 @@
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 2;
-    color: rgb(var(--tertiary-dark));
+    color: rgb(var(--primary-dark));
 
     p {
       all: inherit;
@@ -141,7 +141,7 @@
       font-family: var(--font-primary);
       font-size: 1.5rem;
       font-weight: 400;
-      color: rgb(var(--primary-light));
+      color: rgb(var(--tertiary-dark));
     }
   }
 }

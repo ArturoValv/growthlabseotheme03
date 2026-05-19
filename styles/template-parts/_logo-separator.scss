@@ -9,13 +9,13 @@
   svg {
     width: 3.2rem;
     height: 3.2rem;
-    color: rgb(var(--tertiary));
+    color: rgb(var(--primary));
   }
 
   hr {
     height: 1px;
     flex: 1 1 calc(50% - 2rem);
     display: block;
-    background-color: rgb(var(--tertiary));
+    background-color: rgb(var(--primary));
   }
 }

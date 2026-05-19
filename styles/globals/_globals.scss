@@ -150,7 +150,7 @@ a:hover,
 a:active,
 a:focus {
   cursor: pointer;
-  color: rgb(var(--tertiary-light));
+  color: rgb(var(--tertiary-dark));
 }
 
 /* Lists */
@@ -291,8 +291,8 @@ img.bg-image {
     display: block;
     background: linear-gradient(
       0deg,
-      rgb(var(--primary-dark)) 0%,
-      rgb(var(--tertiary)) 100%
+      rgb(var(--tertiary-dark)) 0%,
+      rgb(var(--primary-dark)) 100%
     );
     opacity: 0.8;
 
@@ -300,18 +300,18 @@ img.bg-image {
       background:
         radial-gradient(
           ellipse at bottom left,
-          rgba(var(--primary-dark), 0.9) 0%,
-          rgba(var(--tertiary), 0.9) 70%
+          rgba(var(--tertiary-dark), 0.6) 0%,
+          rgba(var(--primary-dark), 0.9) 70%
         ),
         radial-gradient(
           ellipse at top right,
-          rgba(var(--tertiary), 0.8) 0%,
-          rgba(var(--tertiary), 0.8) 70%
+          rgba(var(--primary-dark), 0.8) 0%,
+          rgba(var(--primary-dark), 0.8) 70%
         ),
         linear-gradient(
           0deg,
-          rgba(var(--tertiary), 1) 0%,
-          rgba(var(--primary-dark), 1) 100%
+          rgba(var(--primary-dark), 1) 0%,
+          rgba(var(--tertiary-dark), 0.8) 100%
         );
       opacity: 0.8;
     }
@@ -489,7 +489,7 @@ img.bg-image {
     background: rgb(var(--primary-dark));
 
     &:hover {
-      background: rgb(var(--tertiary));
+      background: rgb(var(--primary));
     }
 
     &::before {
@@ -506,31 +506,31 @@ img.bg-image {
 
   &--secondary {
     @extend .btn;
-    background: rgb(var(--secondary));
+    background: rgb(var(--secondary-dark));
 
     &::before {
       content: none;
     }
 
     span {
-      color: rgb(var(--tertiary));
+      color: rgb(var(--text));
     }
 
     &:hover {
-      background: rgb(var(--secondary-dark));
+      background: rgb(var(--secondary));
       span {
-        color: rgb(var(--tertiary-dark));
+        color: rgb(var(--primary-dark));
       }
     }
   }
 
   &--tertiary {
     @extend .btn;
-    background: rgb(var(--tertiary));
+    background: rgb(var(--tertiary-dark));
 
     &::before {
       background:
-        linear-gradient(rgba(var(--primary-dark)) 31%),
+        linear-gradient(rgba(var(--tertiary-light)) 31%),
         rgb(var(var(--secondary-light)));
     }
 
@@ -539,7 +539,29 @@ img.bg-image {
     }
 
     &:hover {
-      background: rgb(var(--tertiary-light));
+      background: rgb(var(--tertiary));
+    }
+  }
+
+  &--tertiary-light {
+    @extend .btn;
+    background: rgb(var(--tertiary-light));
+
+    &::before {
+      background:
+        linear-gradient(rgba(var(--tertiary)) 31%),
+        rgb(var(var(--secondary-light)));
+    }
+
+    span {
+      color: rgb(var(--text));
+    }
+
+    &:hover {
+      background: rgb(var(--tertiary));
+      span {
+        color: rgb(var(--secondary-dark));
+      }
     }
   }
 

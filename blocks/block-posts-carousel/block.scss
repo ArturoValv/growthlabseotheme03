@@ -9,6 +9,7 @@
 .posts-carousel {
   padding: var(--sp-sm) 0;
   position: relative;
+  background-color: rgb(var(--secondary));
 
   @media (min-width: v.$ldpi) {
     padding: var(--sp-md) 0;
@@ -17,11 +18,11 @@
   $parent: &;
 
   &.dark {
-    background-color: rgba(var(--tertiary));
+    background-color: rgba(var(--primary-dark));
 
     #{$parent}__title,
     #{$parent}__content > * {
-      color: rgb(var(--secondary));
+      color: rgb(var(--secondary-light));
     }
   }
 
@@ -104,7 +105,7 @@
               z-index: 0;
               border: 5px solid rgba(var(--tertiary));
               display: block;
-              background-color: rgb(var(--primary-dark), 0.6);
+              background-color: rgb(var(--tertiary-dark), 0.4);
               opacity: 0;
             }
           }
@@ -260,7 +261,7 @@
 
   &__title {
     margin-bottom: 0;
-    @include m.title(rgba(var(--tertiary)), 3rem, 4.5vw, 10rem, 600, 1);
+    @include m.title(rgba(var(--primary-dark)), 3rem, 4.5vw, 10rem, 600, 1);
   }
 
   &__subtitle {
@@ -269,7 +270,7 @@
     font-size: 2.5rem;
     line-height: 1.5;
     text-transform: uppercase;
-    color: rgb(var(--primary-dark));
+    color: rgb(var(--primary));
   }
 
   &__carousel {

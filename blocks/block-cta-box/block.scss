@@ -16,8 +16,8 @@
       to right bottom,
       rgba(var(--primary-dark)) 10%,
       rgba(var(--primary-dark)) 25%,
-      rgba(var(--tertiary)),
-      rgba(var(--tertiary-dark))
+      color-mix(in srgb, rgb(var(--primary-dark)) 45%, #000 55%),
+      color-mix(in srgb, rgb(var(--primary-dark)) 35%, #000 65%)
     );
 
     #{$parent}__bg {
@@ -34,8 +34,8 @@
           to right bottom,
           rgba(var(--primary-dark)) 10%,
           rgba(var(--primary-dark)) 25%,
-          rgba(var(--tertiary)),
-          rgba(var(--tertiary-dark))
+          color-mix(in srgb, rgb(var(--primary-dark)) 45%, #000 55%),
+          color-mix(in srgb, rgb(var(--primary-dark)) 35%, #000 65%)
         );
         opacity: 0.9;
       }
@@ -73,8 +73,8 @@
         background-image: linear-gradient(
           to bottom,
           transparent 40%,
-          rgba(var(--tertiary), 0.6) 85%,
-          rgba(var(--tertiary), .8)
+          rgba(var(--primary-dark), 0.6) 85%,
+          rgba(var(--primary-dark), 0.8)
         );
       }
 
@@ -112,11 +112,11 @@
 
     #{$parent}__title {
       text-align: center;
-      color: rgb(var(--tertiary));
+      color: rgb(var(--primary-dark));
     }
 
     #{$parent}__content {
-      color: rgb(var(--tertiary));
+      color: rgb(var(--primary-dark));
 
       & > *:not(a) {
         color: inherit;

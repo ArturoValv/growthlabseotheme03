@@ -8,6 +8,7 @@
 
 .posts-grid {
   padding: var(--sp-xsm) 0;
+  background-color: rgb(var(--secondary-light));
 
   @media (min-width: v.$ldpi) {
     padding: var(--sp-lg) 0;

@@ -33,13 +33,14 @@ textarea {
   padding: 10px 16px;
   background: rgb(var(--secondary-light));
   border-radius: 0;
+  border: 1px solid rgb(var(--primary-dark));
   font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-family: var(--font-primary);
   line-height: 1.5;
-  color: rgb(var(--tertiary));
+  color: rgb(var(--primary-dark));
 
   &::placeholder {
-    color: rgb(var(--tertiary), 0.6);
+    color: rgb(var(--primary-dark), 0.6);
   }
 }
 
@@ -105,7 +106,7 @@ input[type="hidden"] {
   padding: 1.4rem 2rem;
   position: relative;
   display: inline-block;
-  background: rgb(var(--tertiary));
+  background: rgb(var(--primary-dark));
   text-align: center;
   text-transform: uppercase;
   font-family: var(--font-primary);
@@ -132,7 +133,7 @@ input[type="hidden"] {
 
   &:hover {
     cursor: pointer;
-    background: rgb(var(--tertiary-light));
+    background: rgb(var(--tertiary));
   }
 
   svg {

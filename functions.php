@@ -186,6 +186,24 @@ if (!function_exists('growthlabseotheme03_setup')) {
         ));
 
         // Color Palette support
+        if (file_exists(__DIR__ . '/theme-functions/color-scheme.php')) {
+            require_once __DIR__ . '/theme-functions/color-scheme.php';
+        }
+        global $default_colors;
+
+        $primary_default = $default_colors['primary']['default'];
+        $primary_dark = $default_colors['primary']['dark'];
+        $primary_light = $default_colors['primary']['light'];
+
+        $secondary_default = $default_colors['secondary']['default'];
+        $secondary_dark = $default_colors['secondary']['dark'];
+        $secondary_light = $default_colors['secondary']['light'];
+
+        $tertiary_default = $default_colors['tertiary']['default'];
+        $tertiary_dark = $default_colors['tertiary']['dark'];
+        $tertiary_light = $default_colors['tertiary']['light'];
+
+        $text_default = $default_colors['text'];
         add_theme_support(
             'editor-color-palette',
             array(
@@ -195,7 +213,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'primary-color',
-                    'color' => get_theme_mod('primary_color', '#15253f'),
+                    'color' => get_theme_mod('primary_color', $primary_default),
                 ),
                 array(
                     'name'  => __(
@@ -203,7 +221,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'primary-color-dark',
-                    'color' => get_theme_mod('primary_color_dark', '#08182f'),
+                    'color' => get_theme_mod('primary_color_dark', $primary_dark),
                 ),
                 array(
                     'name'  => __(
@@ -211,7 +229,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'primary-color-light',
-                    'color' => get_theme_mod('primary_color_light', '#2C3D5B'),
+                    'color' => get_theme_mod('primary_color_light', $primary_light),
                 ),
                 array(
                     'name'  => __(
@@ -219,7 +237,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'secondary-color',
-                    'color' => get_theme_mod('secondary_color', '#F4F3EE'),
+                    'color' => get_theme_mod('secondary_color', $secondary_default),
                 ),
                 array(
                     'name'  => __(
@@ -227,7 +245,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'secondary-color-dark',
-                    'color' => get_theme_mod('secondary_color_dark', '#E7E5DF'),
+                    'color' => get_theme_mod('secondary_color_dark', $secondary_dark),
                 ),
                 array(
                     'name'  => __(
@@ -235,7 +253,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'secondary-color-light',
-                    'color' => get_theme_mod('secondary_color_light', '#FFFFFF'),
+                    'color' => get_theme_mod('secondary_color_light', $secondary_light),
                 ),
                 array(
                     'name'  => __(
@@ -243,7 +261,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'tertiary-color',
-                    'color' => get_theme_mod('tertiary_color', '#BC9061'),
+                    'color' => get_theme_mod('tertiary_color', $tertiary_default),
                 ),
                 array(
                     'name'  => __(
@@ -251,7 +269,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'tertiary-color-dark',
-                    'color' => get_theme_mod('tertiary_color_dark', '#9D7A55'),
+                    'color' => get_theme_mod('tertiary_color_dark', $tertiary_dark),
                 ),
                 array(
                     'name'  => __(
@@ -259,7 +277,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03'
                     ),
                     'slug'  => 'tertiary-color-light',
-                    'color' => get_theme_mod('tertiary_color_light', '#DCAB77'),
+                    'color' => get_theme_mod('tertiary_color_light', $tertiary_light),
                 ),
                 array(
                     'name'  => __(
@@ -267,7 +285,7 @@ if (!function_exists('growthlabseotheme03_setup')) {
                         'growthlabseotheme03 '
                     ),
                     'slug'  => 'text-color',
-                    'color' => get_theme_mod('text_color', '#15253f'),
+                    'color' => get_theme_mod('text_color', $text_default),
                 ),
             )
         );
@@ -298,7 +316,7 @@ add_action('after_setup_theme', 'growthlabseotheme03_setup');
 function growthlabseotheme03_remove_custom_logo_link($html)
 {
     // Extract just the <img> tag from the logo HTML
-    preg_match('/<img[^>]+>/', $html, $matches);
+    preg_match('/<img[^>]>/', $html, $matches);
 
     if (!empty($matches[0])) {
         return $matches[0];
@@ -362,7 +380,7 @@ function inline_main_critical_css()
     $critical_css = preg_replace('/\{theme-path\}/', get_template_directory_uri(), $critical_css);
     // Minify CSS: remove comments, extra spaces, and newlines
     $critical_css = preg_replace('/\/\*.*?\*\//s', '', $critical_css); // Remove CSS comments
-    $critical_css = preg_replace('/\s+/', ' ', $critical_css); // Replace multiple spaces with single space
+    $critical_css = preg_replace('/\s/', ' ', $critical_css); // Replace multiple spaces with single space
     $critical_css = preg_replace('/\s*([{}:;,])\s*/', '$1', $critical_css); // Remove spaces around braces, colons, semicolons, commas
     $critical_css = trim($critical_css); // Trim leading/trailing whitespace
 

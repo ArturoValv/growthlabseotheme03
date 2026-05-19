@@ -73,7 +73,7 @@ if (get_field('toggle_block')):
 
                 <?php if ($cta_link): ?>
                     <div class="faq__btn">
-                        <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn--primary" aria-label="<?= esc_attr($cta_link['title']) ?>">
+                        <a href="<?= $cta_link['url'] ?>" target="<?= $cta_link['target'] ?>" class="btn--tertiary" aria-label="<?= esc_attr($cta_link['title']) ?>">
                             <span><?= $cta_link['title'] ?></span>
                         </a>
                     </div>

@@ -10,22 +10,27 @@
   background-color: rgba(var(--secondary));
   background-image: radial-gradient(
     farthest-corner circle at 35% 180%,
-    rgba(var(--primary-dark), 0.5) 25%,
-    rgba(var(--secondary)) 45%
+    rgba(var(--secondary-dark), 0.5) 25%,
+    rgba(var(--secondary-light)) 45%
   );
 
   $parent: &;
 
   &.dark {
-    background-color: rgba(var(--tertiary));
+    background-color: rgba(var(--primary-dark));
     background-image: radial-gradient(
       farthest-corner circle at 35% 180%,
-      rgba(var(--primary-light), 0.35) 25%,
-      rgba(var(--tertiary)) 45%
+      rgba(var(--tertiary), 0.35) 25%,
+      color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 45%
     );
 
     #{$parent}__title {
       color: rgba(var(--secondary));
+    }
+
+    .logo__pic img {
+      opacity: 0.4;
+      transition: opacity 0.1s linear;
     }
   }
 
@@ -57,7 +62,7 @@
   }
 
   &__title {
-    @include m.title(rgba(var(--tertiary)), 4rem, 2vw, 3.2rem);
+    @include m.title(rgba(var(--primary-dark)), 4rem, 2vw, 3.2rem);
   }
 
   &__carousel {
@@ -93,7 +98,7 @@
       height: 100%;
       padding: 3rem 5rem;
       display: flex;
-      border: 1px solid rgba(var(--tertiary-light), 0.2);
+      border: 1px solid rgba(var(--tertiary), 0.2);
 
       img {
         width: 100%;
@@ -102,8 +107,6 @@
         object-fit: contain;
         object-position: center;
         aspect-ratio: 1/1;
-        opacity: 0.4;
-        transition: opacity 0.1s linear;
       }
     }
 
@@ -118,6 +121,10 @@
     }
 
     &:hover {
+      .logo__pic {
+        border-color: rgba(var(--tertiary-light));
+      }
+
       img {
         opacity: 1;
       }

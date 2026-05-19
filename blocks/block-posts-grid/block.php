@@ -123,8 +123,6 @@ if (get_field('toggle_block')):
                                         "author" => $author_name,
                                         "role" => $author_role,
                                         "content" => $testimonial_content,
-                                        "source" => $testimonial_source,
-                                        "link_url" => $testimonial_source_link,
                                     ));
                                     break;
 

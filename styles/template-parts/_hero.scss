@@ -4,7 +4,7 @@
 .hero {
   min-height: 35rem;
   padding: 15rem 0 var(--sp-xsm);
-  border-bottom: 5px solid rgb(var(--tertiary-light));
+  border-bottom: 5px solid rgb(var(--tertiary-dark));
 
   $hero: &;
 
@@ -117,9 +117,9 @@
       display: block;
       background: linear-gradient(
         to right,
-        rgba(var(--tertiary)) 0%,
+        color-mix(in srgb, rgb(var(--primary)) 20%, #000 80%) 0%,
         rgba(var(--primary-dark)) 20%,
-        rgba(var(--tertiary-dark)) 70%,
+        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 70%,
         rgba(var(--primary)) 100% /* azul brillante en punta derecha */
       );
       clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -139,8 +139,8 @@
         167deg,
         rgba(var(--primary-dark)) 0%,
         rgba(var(--primary)) 70%,
-        rgba(var(--tertiary)) 20%,
-        rgba(var(--tertiary)) 100%
+        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 20%,
+        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 100%
       );
       clip-path: polygon(0 100%, 100% 0%, 100% 100%);
     }
