@@ -100,6 +100,18 @@
       }
 
       &.right {
+        .col {
+          &__symbol {
+            right: 0;
+          }
+
+          &__image {
+            img {
+              object-position: center left;
+            }
+          }
+        }
+
         @media (min-width: v.$ldpi) {
           grid-column: 2/3;
 
@@ -231,7 +243,7 @@
         height: auto;
         display: block;
         object-fit: contain;
-        object-position: bottom right;
+        object-position: center right;
       }
     }
 
