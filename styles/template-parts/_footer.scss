@@ -190,12 +190,12 @@ main:has(+ .site-footer .contact-form-footer) {
         text-align: center;
         letter-spacing: 0.25em;
         text-transform: uppercase;
-        color: rgb(var(--primary-light));
+        color: rgb(var(--tertiary));
         transition: 0.3s ease-in-out;
 
         &:hover {
           cursor: pointer;
-          color: rgb(var(--secondary-light));
+          color: rgb(var(--tertiary-light));
         }
       }
     }
