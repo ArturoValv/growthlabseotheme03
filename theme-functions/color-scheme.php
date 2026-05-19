@@ -2,9 +2,9 @@
 // Definir colores por defecto
 $default_colors = [
     'primary' => [
-        'default' => '#0263ca',
-        'dark'    => '#003d7e',
-        'light'   => '#0070e8'
+        'default' => '#0e5db8',
+        'dark'    => '#031b3a',
+        'light'   => '#2b7de0'
     ],
     'secondary' => [
         'default' => '#f4f8fd',
