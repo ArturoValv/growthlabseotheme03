@@ -325,7 +325,7 @@
     @include m.flex-center;
     flex-wrap: wrap;
     gap: var(--sp-sm);
-    border-top: 2px solid rgba(var(--primary));
+    border-top: 2px solid rgba(var(--tertiary));
 
     &__buttons {
       min-width: 280px;
