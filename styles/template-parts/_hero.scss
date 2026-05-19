@@ -117,9 +117,9 @@
       display: block;
       background: linear-gradient(
         to right,
-        color-mix(in srgb, rgb(var(--primary)) 20%, #000 80%) 0%,
+        color-mix(in srgb, rgb(var(--primary)) 40%, #000 100%) 0%,
         rgba(var(--primary-dark)) 20%,
-        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 70%,
+        color-mix(in srgb, rgb(var(--primary-dark)) 30%, #000 100%) 70%,
         rgba(var(--primary)) 100% /* azul brillante en punta derecha */
       );
       clip-path: polygon(0 0, 0% 100%, 100% 100%);
@@ -139,8 +139,8 @@
         167deg,
         rgba(var(--primary-dark)) 0%,
         rgba(var(--primary)) 70%,
-        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 20%,
-        color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 100%
+        color-mix(in srgb, rgb(var(--primary-dark)) 30%, #000 100%) 20%,
+        color-mix(in srgb, rgb(var(--primary-dark)) 30%, #000 100%) 100%
       );
       clip-path: polygon(0 100%, 100% 0%, 100% 100%);
     }
