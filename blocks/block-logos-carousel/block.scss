@@ -62,7 +62,7 @@
   }
 
   &__title {
-    @include m.title(rgba(var(--primary-dark)), 4rem, 4vw, 5rem);
+    @include m.title(rgba(var(--primary-dark)), 4rem, 4vw, 4.5rem);
   }
 
   &__carousel {
