@@ -8,21 +8,17 @@
   flex-wrap: wrap;
   gap: var(--sp-md);
   background-color: rgba(var(--secondary));
-  background-image: radial-gradient(
-    farthest-corner circle at 35% 180%,
-    rgba(var(--secondary-dark), 0.5) 25%,
-    rgba(var(--secondary-light)) 45%
+  background-image: linear-gradient(
+    180deg,
+    rgba(var(--secondary-dark), 0.4),
+    transparent
   );
 
   $parent: &;
 
   &.dark {
     background-color: rgba(var(--primary-dark));
-    background-image: radial-gradient(
-      farthest-corner circle at 35% 180%,
-      rgba(var(--tertiary), 0.35) 25%,
-      color-mix(in srgb, rgb(var(--primary-dark)) 80%, #000 20%) 45%
-    );
+    background-image: linear-gradient(180deg, black, transparent);
 
     #{$parent}__title {
       color: rgba(var(--secondary));
@@ -112,10 +108,8 @@
 
     &.is-active {
       img {
-        opacity: 1;
-
-        @media (min-width: v.$tablet) {
-          opacity: 0.4;
+        @media (max-width: calc(v.$tablet - 1px)) {
+          opacity: 1;
         }
       }
     }
