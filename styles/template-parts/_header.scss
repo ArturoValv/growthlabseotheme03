@@ -8,7 +8,7 @@
   position: static;
   z-index: 9999;
   background-color: rgba(var(--primary-dark));
-  background-color: color-mix(in srgb, rgb(var(--primary-dark)) 35%, #000 65%);
+  background-color: color-mix(in srgb, rgb(var(--primary-dark)) 45%, #000 55%);
   @include m.flex-center;
 
   $header: &;
