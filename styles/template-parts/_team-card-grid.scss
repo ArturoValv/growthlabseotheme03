@@ -59,10 +59,6 @@
       display: block;
       object-fit: cover;
       object-position: top center;
-
-      @media (min-width: v.$ldpi) {
-        object-position: center center;
-      }
     }
   }
 
