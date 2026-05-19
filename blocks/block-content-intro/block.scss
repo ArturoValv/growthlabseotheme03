@@ -102,12 +102,17 @@
       &.right {
         .col {
           &__symbol {
-            right: 0;
+            right: calc(-1 * var(--sp-sm));
+            left: auto;
+
+            & > * {
+              margin-left: auto;
+            }
           }
 
           &__image {
             img {
-              object-position: center left;
+              object-position: bottom left;
             }
           }
         }
@@ -243,7 +248,7 @@
         height: auto;
         display: block;
         object-fit: contain;
-        object-position: center right;
+        object-position: bottom right;
       }
     }
 
@@ -252,7 +257,7 @@
       aspect-ratio: 1/1;
       display: block;
       position: absolute;
-      top: 2rem;
+      top: 1.6rem;
       left: var(--sp-sm);
       z-index: -1;
 
