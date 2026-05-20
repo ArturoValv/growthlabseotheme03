@@ -123,6 +123,10 @@
         rgba(var(--primary)) 100% /* azul brillante en punta derecha */
       );
       clip-path: polygon(0 0, 0% 100%, 100% 100%);
+
+      @media (max-width: calc(v.$tablet - 1px)) {
+        width: 50%;
+      }
     }
 
     &::after {
@@ -143,6 +147,10 @@
         color-mix(in srgb, rgb(var(--primary-dark)) 30%, #000 100%) 100%
       );
       clip-path: polygon(0 100%, 100% 0%, 100% 100%);
+
+      @media (max-width: calc(v.$tablet - 1px)) {
+        width: 50%;
+      }
     }
 
     & + * {
@@ -188,7 +196,7 @@
       width: 20rem;
       aspect-ratio: 1/1;
       position: absolute;
-      right: 0;
+      left: 50%;
       bottom: -8rem;
       z-index: 10;
       display: flex;
@@ -198,11 +206,12 @@
       justify-content: space-evenly;
 
       @media (max-width: calc(v.$tablet - 1px)) {
-        transform: scale(0.8);
+        transform: scale(0.8) translateX(-50%);
       }
 
       @media (min-width: v.$tablet) {
         right: calc(20% - 10rem);
+        left: unset;
       }
 
       img {
