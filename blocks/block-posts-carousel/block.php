@@ -44,6 +44,7 @@ if (get_field('toggle_block')):
 ?>
 
     <section
+        id="<?= $block_id ?? "" ?>"
         class="
         block 
         posts-carousel
