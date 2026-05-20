@@ -17,11 +17,11 @@
     top: 0;
     left: 0;
     background-color: transparent;
-    transition: all 0.5s cubic-bezier(1, 0.355, 0.355, 1);
+    transition: 0.3s ease;
 
     &.scrolling {
       background-color: rgb(var(--primary-dark));
-      transition: all 0.5s cubic-bezier(1, 0.355, 0.355, 1);
+      transition: 0.3s ease;
     }
 
     &:not(.scrolling) {
@@ -95,7 +95,7 @@
     gap: 5px;
     background-color: rgba(var(--primary-dark));
     border-right: 1px solid rgb(var(--secondary-light));
-    transition: all 0.5s cubic-bezier(1, 0.355, 0.355, 1);
+    transition: 0.3s ease;
 
     @media (min-width: v.$tablet) {
       grid-row: 1/2;
