@@ -128,7 +128,7 @@
   }
 }
 
-.splide__pagination {
+.splide .splide__pagination {
   &--ltr {
     margin-block: var(--sp-sm);
     @include m.flex-center;
