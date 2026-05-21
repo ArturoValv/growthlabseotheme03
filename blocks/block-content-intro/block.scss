@@ -202,7 +202,6 @@
             .col__title {
               padding-bottom: 6.4rem;
               border-bottom: 0;
-              line-height: 0.95;
             }
 
             .col__content {
@@ -308,8 +307,10 @@
 
       strong {
         font-weight: 700;
+        font-size: inherit;
         
         *{
+          font-size: inherit;
           font-weight: inherit;
         }
       }
