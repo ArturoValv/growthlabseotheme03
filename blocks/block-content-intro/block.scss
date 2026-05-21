@@ -298,7 +298,7 @@
       padding-bottom: var(--sp-xsm);
       flex: 0 0 100%;
       border-bottom: 2px solid rgb(var(--tertiary));
-      @include m.title(rgba(var(--primary-dark)), 4rem, 2vw, 6rem, 700, 0.9);
+      @include m.title(rgba(var(--primary-dark)), 4rem, 2vw, 6rem, 700, 1);
       text-transform: uppercase;
       text-align: center;
 
@@ -309,7 +309,6 @@
       * {
         margin-bottom: 0;
         color: currentColor;
-        font-weight: inherit;
         line-height: inherit;
 
         @media (max-width: calc(v.$ldpi - 1px)) {
