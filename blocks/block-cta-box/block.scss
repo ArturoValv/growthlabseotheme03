@@ -173,7 +173,9 @@
     color: rgba(var(--primary-dark));
 
     * {
-      all: inherit;
+      font-family: inherit;
+      color: inherit;
+      line-height: inherit;
 
       @media (max-width: calc(v.$ldpi - 1px)) {
         text-align: center;
