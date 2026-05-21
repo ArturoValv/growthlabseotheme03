@@ -47,7 +47,7 @@ if (get_field('toggle_block')):
             <div class="col">
                 <?php
                 if (isset($pretitle) && $pretitle) print_title($pretitle, $pretitle_tag, "col__pretitle pretitle");
-                if (isset($title) && $title) echo "<div class='col__title'>$title</div>";
+                if (isset($title) && $title) echo "<div class='col__title formatted-text'>$title</div>";
                 ?>
                 <div class="col__content formatted-text">
                     <?= $content ?? "" ?>
