@@ -192,6 +192,16 @@
       }
     }
 
+    strong {
+      font-weight: 600;
+      font-size: inherit;
+
+      * {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+    }
+
     * {
       font-family: inherit;
       color: inherit;
