@@ -36,7 +36,7 @@ if (get_field('toggle_block')):
 
                     img_print_picture_tag(
                         img: $featured_image,
-                        max_size: $featured_image_position !== "bottom" ? "cover-mobile" : "cover-desktop",
+                        max_size: $featured_image_position !== "bottom" ? "content" : "cover-desktop",
                         min_size: "featured-small",
                         classes: "col__image"
                     );
