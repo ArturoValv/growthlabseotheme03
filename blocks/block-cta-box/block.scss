@@ -164,7 +164,7 @@
   &__main {
     @include m.flex-center;
     flex-direction: column;
-    gap: var(--sp-xsm);
+    gap: var(--sp-sm);
   }
 
   &__title {
