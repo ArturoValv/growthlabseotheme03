@@ -202,6 +202,10 @@
             .col__title {
               padding-bottom: 6.4rem;
               border-bottom: 0;
+
+              & > *:last-child {
+                margin-bottom: var(--sp-sm);
+              }
             }
 
             .col__content {
@@ -334,10 +338,6 @@
 
         @media (max-width: calc(v.$ldpi - 1px)) {
           font-size: clamp(4rem, 2vw, 6rem) !important;
-        }
-
-        &:last-child {
-          margin-bottom: var(--sp-sm);
         }
       }
     }
