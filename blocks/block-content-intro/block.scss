@@ -316,6 +316,10 @@
       h6 {
         line-height: 0.95;
 
+        @media (max-width: calc(v.$ldpi - 1px)) {
+          font-size: clamp(4rem, 2vw, 6rem) !important;
+        }
+
         & + * {
           margin-top: var(--sp-xsm);
         }
@@ -335,10 +339,6 @@
         margin-bottom: 0;
         color: currentColor;
         line-height: inherit;
-
-        @media (max-width: calc(v.$ldpi - 1px)) {
-          font-size: clamp(4rem, 2vw, 6rem) !important;
-        }
       }
     }
 
