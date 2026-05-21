@@ -57,7 +57,7 @@
     padding-bottom: 5rem;
     background-color: rgb(var(--secondary));
     @media (min-width: v.$ldpi) {
-      padding-bottom: 65rem;
+      padding-bottom: 55rem;
     }
   }
 
@@ -136,7 +136,7 @@
         @include m.flex-center;
 
         @media (min-width: v.$ldpi) {
-          max-height: 65rem;
+          max-height: 50rem;
         }
 
         picture {
@@ -148,7 +148,7 @@
           mask-image: linear-gradient(
             to top,
             rgba(var(--secondary)),
-            transparent 130%
+            transparent 100%
           );
           object-fit: cover;
           object-position: center center;
