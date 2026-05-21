@@ -87,12 +87,13 @@
       border-radius: 50%;
 
       picture,
-      svg {
+      div {
         width: 60%;
         height: 60%;
         display: block;
       }
 
+      svg,
       img {
         width: 100%;
         aspect-ratio: 1/1;
