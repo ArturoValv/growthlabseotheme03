@@ -90,7 +90,7 @@
       div {
         width: 60%;
         height: 60%;
-        display: block;
+        @include m.flex-center;
       }
 
       svg,
