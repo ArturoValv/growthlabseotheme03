@@ -172,6 +172,19 @@
     line-height: 1;
     color: rgba(var(--primary-dark));
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 0.95;
+
+      @media (max-width: calc(v.$ldpi - 1px)) {
+        font-size: clamp(5rem, 6vw, 10rem) !important;
+      }
+    }
+
     * {
       font-family: inherit;
       color: inherit;
@@ -179,7 +192,6 @@
 
       @media (max-width: calc(v.$ldpi - 1px)) {
         text-align: center;
-        font-size: clamp(5rem, 6vw, 10rem) !important;
       }
     }
   }
