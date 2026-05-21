@@ -298,7 +298,6 @@
       flex: 0 0 100%;
       border-bottom: 2px solid rgb(var(--tertiary));
       @include m.title(rgba(var(--primary-dark)), 4rem, 2vw, 6rem, 700, 1);
-      text-transform: uppercase;
       text-align: center;
 
       @media (min-width: v.$tablet) {
