@@ -335,6 +335,10 @@
         @media (max-width: calc(v.$ldpi - 1px)) {
           font-size: clamp(4rem, 2vw, 6rem) !important;
         }
+
+        &:last-child {
+          margin-bottom: var(--sp-xsm);
+        }
       }
     }
 
